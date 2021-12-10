@@ -73,14 +73,23 @@ nombres.forEach(function(nombre) {
 
 nombres.forEach(nombre => document.write("arrow function " + nombre + '<br>'));
 
-// //OBJETOS LITERALES O JSON
-// En Internet el uso más importante es el de generar datos en el backend y enviarlos a las aplicaciones frontend. El flujo sería el siguiente:
+// //OBJETOS JSON o literales
+
+// Formato para trabajar con datos/objetos
+//En Internet el uso más importante es el de generar datos en el backend y enviarlos a las aplicaciones frontend. El flujo sería el siguiente:
 // Las aplicaciones frontend requieren datos para representar al usuario.
 // Mediante Javascript realizan solicitudes HTTP a un endpoint (URL) en el backend. Estas solicitudes se realizan de manera asíncrona mediante Ajax.
 // El backend recibe la solicitud sobre el dato que se requiere desde el frontend, o la operación que se desea realizar (ediciones, inserciones, etc.)
 // El backend realiza la operación, enviando el resultado al frontend en formato JSON.
 // El frontend recibe el JSON y generalmente construye mediante Javascript el HTML necesario para representar esa información convenientemente al usuario.
-
+/* 
+es lo que esta entre { }
+las propiedades van con sintaxis de ""
+los valores si son numericos o booleanos su sintesis es normal pero si es String necesita ""
+Los arrays van "propiedad":["nombre", "apellido"]
+ se puede extender una propiedad dentro de otra y asi sucesivamente de forma infinita
+ TODA propiedad se separa con , coma (Menos la ultima)
+*/
 // var objeto = JSON.parse('{"nombre": "juan", "edad": 33, "casado": false}');
 // Esta función permite convertir una cadena en formato JSON en una variable Javascript que contiene la representación del valor de esa cadena.
 
@@ -98,7 +107,7 @@ var coche = {
     "modelo": "Mercedes Clase A",
     "maxima": 500,
     "antiguedad": 2020,
-    //puedo crear funciones y metodos dentro del OBJETO
+    //puedo crear funciones, arrays, metodos, etc dentro del OBJETO COCHE
     "mostrarDatos" () {
         console.log(this.modelo, this.maxima, this.antiguedad);
     },
@@ -115,7 +124,6 @@ console.log(coche);
 // AJAX Y FETCH que es la nueva función de Javascript para el acceso a datos del servidor, que devuelve una promesa.
 
 // Fetch es una función a la que le indicamos la URL a la que queremos acceder.
-
 // fetch('https://url/del/servicio/web)
 // Esta función nos devuelve una promesa, que debemos que esperar que se resuelva. Una vez resuelta obtenemos uan respuesta, que nos indica los datos de la solicitud HTTP que se acaba de realizar.
 
@@ -123,7 +131,6 @@ console.log(coche);
 //     // Código a ejecutar con la respuesta
 // })
 // Ahora bien, si esa respuesta era en formato JSON podemos acceder al objeto Javascript que representa ese JSON por medio del método response.json(). La dificultad es que este método devuelve a su vez otra promesa, que tenemos que encadenar.
-
 // El código completo de encadenar dos promesas sería el siguiente:
 
 // fetch('https://url/del/servicio/web')
@@ -133,3 +140,55 @@ console.log(coche);
 //   // podemos hacer cualquier cosa con él...
 //   console.log(json)
 //   });
+
+async function obtenerDatos() {
+    const response = await fetch("http://127.0.0.1:5500/Frameworks/repasoJs/datos.json");
+
+    /*
+    const json = await response.text(); //1ro lo puedo obtener como texto
+    //console.log(json)
+    console.log(JSON.parse(json)); // y 2do lo puedo pasar a json
+    console.log(JSON.stringify(json)); // 3ro lo puedo volver a pasar a string texto
+    console.log(JSON.nombre);
+*/
+
+    //la segunda opcion mas rapida es directamente hacer response.json y pedirlo en ese formato
+    const json = await response.json();
+    //Luego puedo pedir valores del json
+    console.log(json);
+    console.log(json.nombre);
+    console.log(json.experiencia);
+    //visualizar un array del json
+    json.experiencia.forEach(elemento => console.log(elemento.empresa));
+    console.log(json.direccion["pago_agua"]);
+
+    //ojo no confundir: json es mi documento y JSON es la clase que me permite invocar metodos a traves del . punto
+
+
+}
+obtenerDatos();
+
+// PROMESAS ... promise
+/* para peticiones ASINCRONA (como AJAX), pueden TARDAR UN RATO en devolver un resultado o no devolverlo, son valores que pueden estar disponibles ahora, en futuro o nunca, PROMETE QUE LLEGA UN DATO O UN ERROR */
+
+var saludar = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        let saludo = "Hola buen dia!"
+        saludo = false; // para que active el reject
+        if (saludo) {
+            resolve(saludo); // QUE HA RESUELTO LA PROMESA
+
+        } else {
+            reject("no hay saludo disponible"); // QUE NO HA RESUELTO LA PROMESA
+        }
+
+    }, 3000); // espera de tiempo 2 SEG propiedad del setTimeout
+});
+
+// ejecuta la promesa saludar y cuando tenga el RESULTADO que se ejecute el THEN
+saludar.then(resultado => {
+    alert(resultado);
+});
+saludar.catch(error => { // CAPTURA EL ERROR del REJECT
+    alert(error);
+});

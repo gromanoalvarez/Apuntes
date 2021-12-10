@@ -1,0 +1,30 @@
+{
+    "nombre": "Marco",
+    "apellido": "Polo",
+    "lenguajes": ["JavaScrip", "Python", "C++"],
+    "edad": 30,
+    "experiencia": [{
+            "empresa": "Microsoft",
+            "antiguedad": 5
+        },
+        {
+            "empresa": "Google",
+            "antiguedad": 4
+
+        }
+    ],
+    "direccion": {
+        "calle": "arieta",
+        "numero": 2504,
+        "pago_agua": [{
+                "id": 0,
+                "fecha": "abril"
+            },
+            {
+                "id": 1,
+                "fecha": "marzo"
+            }
+
+        ]
+    }
+}
