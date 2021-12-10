@@ -141,17 +141,15 @@ console.log(coche);
 //   console.log(json)
 //   });
 
+
+/* La peticion de datos es asincrona por ende se puede usar ASYNC -AWAIT o sino tambien  PROMISE(RESOLVE, REJECT) */
 async function obtenerDatos() {
     const response = await fetch("http://127.0.0.1:5500/Frameworks/repasoJs/datos.json");
-
-    /*
-    const json = await response.text(); //1ro lo puedo obtener como texto
+    /*    const json = await response.text(); //1ro lo puedo obtener como texto
     //console.log(json)
     console.log(JSON.parse(json)); // y 2do lo puedo pasar a json
     console.log(JSON.stringify(json)); // 3ro lo puedo volver a pasar a string texto
-    console.log(JSON.nombre);
-*/
-
+    console.log(JSON.nombre);*/
     //la segunda opcion mas rapida es directamente hacer response.json y pedirlo en ese formato
     const json = await response.json();
     //Luego puedo pedir valores del json
@@ -161,10 +159,7 @@ async function obtenerDatos() {
     //visualizar un array del json
     json.experiencia.forEach(elemento => console.log(elemento.empresa));
     console.log(json.direccion["pago_agua"]);
-
     //ojo no confundir: json es mi documento y JSON es la clase que me permite invocar metodos a traves del . punto
-
-
 }
 obtenerDatos();
 
@@ -172,7 +167,7 @@ obtenerDatos();
 /* para peticiones ASINCRONA (como AJAX), pueden TARDAR UN RATO en devolver un resultado o no devolverlo, son valores que pueden estar disponibles ahora, en futuro o nunca, PROMETE QUE LLEGA UN DATO O UN ERROR */
 
 var saludar = new Promise((resolve, reject) => {
-    setTimeout(() => {
+    setTimeout(() => { //simula el retraso que sucederia al solicitar algo al servidor
         let saludo = "Hola buen dia!"
         saludo = false; // para que active el reject
         if (saludo) {
