@@ -142,7 +142,7 @@ console.log(coche);
 //   });
 
 
-/* La peticion de datos es asincrona por ende se puede usar ASYNC -AWAIT o sino tambien  PROMISE(RESOLVE, REJECT) */
+/* La peticion de datos es ASINCRONA por ende se puede usar ASYNC-AWAIT FETCH(URL); ho sino tambien  PROMISE(RESOLVE, REJECT) */
 async function obtenerDatos() {
     const response = await fetch("http://127.0.0.1:5500/Frameworks/repasoJs/datos.json");
     /*    const json = await response.text(); //1ro lo puedo obtener como texto
@@ -163,8 +163,9 @@ async function obtenerDatos() {
 }
 obtenerDatos();
 
-// PROMESAS ... promise
-/* para peticiones ASINCRONA (como AJAX), pueden TARDAR UN RATO en devolver un resultado o no devolverlo, son valores que pueden estar disponibles ahora, en futuro o nunca, PROMETE QUE LLEGA UN DATO O UN ERROR */
+// PROMESAS ... Promise (resolve, reject)-(then/catch)
+
+/* para peticiones ASINCRONA (como peticiones AJAX), pueden TARDAR UN RATO en devolver un resultado o no devolverlo, son valores que pueden estar disponibles ahora, en futuro o nunca, PROMETE QUE LLEGA UN DATO O UN ERROR */
 
 var saludar = new Promise((resolve, reject) => {
     setTimeout(() => { //simula el retraso que sucederia al solicitar algo al servidor
@@ -177,7 +178,7 @@ var saludar = new Promise((resolve, reject) => {
             reject("no hay saludo disponible"); // QUE NO HA RESUELTO LA PROMESA
         }
 
-    }, 3000); // espera de tiempo 2 SEG propiedad del setTimeout
+    }, 3000); // espera de tiempo 3 SEG propiedad del setTimeout
 });
 
 // ejecuta la promesa saludar y cuando tenga el RESULTADO que se ejecute el THEN
