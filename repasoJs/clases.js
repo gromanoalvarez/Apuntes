@@ -1,6 +1,6 @@
 //declaracion de una clase (molde para crear varios objetos)
 class Coche {
-    //declaracion de su constructor
+    //declaracion de su constructor........
     constructor(marca, velocidad, antiguedad) {
         this.marca = marca;
         this.velocidad = velocidad;
