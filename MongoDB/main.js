@@ -1,4 +1,4 @@
-<!-- 
+/* 
     
    MongoDB es No SQL
 -No relacional (no necesita relaciones entre datos por claves)
@@ -147,4 +147,4 @@ IMPORTANTE: TENER CORRIENDO mongod y mongo para crear Robo3t
 
 
 
--->
+*/

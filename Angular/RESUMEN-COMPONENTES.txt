@@ -1,0 +1,88 @@
+		Estructura de un proyecto de Angular
+
+	Directorios y archivos
+
+Vamos a trabajar practicamente dentro de SRC ("Donde estan los componentes")
+
+Todos los componentes terminan en .ts
+
+los archivos TSCONFIG -> El compilador que pasa dentro de typeScript, 
+javaScript mejorado, de tipado fuerte.
+
+Readme.md ->
+
+package.json ->Donde instalamos los paquetes, configuramos dependencias y librerias
+
+package-lock ->Se genera cuando instalamos módulos de Node
+
+Karma.conf.js -> Para configurar pruebas
+
+angular.json -> configurar el proyecto en general! permite hacer assets,
+ cargar script y librerias y las comprima, un fichero de configuracion 
+
+gitignore -> que fichero no queremos que se guarden en el repo
+
+como por ejemplo node_modules(se guardan las dependencias y librerias) 
+porque en cada servidor donde tengamos nuestro proyecto va a estar 
+como parte del sistema y es muy pesada.
+
+.editorconfig -> fichero de configuracion para el editor de codigo
+
+main.ts -> donde se carga todos los componentes, carga el nodulo principal
+
+index.html ->plantilla principal donde todo se carga sobre este html,
+ <app-root></app-root> COMPONENTE!!! Se actualiza constantemente
+
+carpeta app/ con los COMPONENTES:
+
+app.component.ts -> el componente principal que viene por defecto
+(ES LO QUE SE MUESTRA POR PANTALLA al ingresar localhost:4200
+
+app.module.ts -> podemos tener varios, este es el principal, 
+podemos crear modulos para el backoffice, modulos para un foro
+
+
+CREAR UN COMPONENTE MANUALMENTE
+Ir a la carpeta AprendiendoAngular/src/app, pero quedaria 
+sucio, no seria una buena practica, sino debo hacer una carpeta 
+dentro de app que se llame
+ components y creo carpetas para cada componente 
+ej mi-componente
+
+
+CREAR UN MULTICOMPONENTE CON "ANGULAR CLI" por medio del CMD 
+(donde estaba el ng serve o Angular lanzado abro el cmo)
+poner en el directorio donde tengo Angular instalado:
+	ng g component component/nombreQueQuieroParaMiComponente 
+Esto me CREA en mi directorio los archivos component.html component.ts 
+(ya lo crea con selector y templateUrl) 
+component.css y UPDATE(Actualiza) ACTUALIZA MI app.module!!! 
+(Permite cargar configuraciones para el MÓdulo. 
+IMPORTA EL COMPONENTE A CUALQUIER PARTE DE MI APLICACIÓN )
+Es decir: "ya me ha cargado el componente dentro de la aplicación de Angular
+para yo utilizarlo donde quiera"
+
+Una vez creado los multicomponentes para poder utilizarlos 
+tenemos que VOLVER A LANZAR EL  
+		ng serve
+Asi puedo empezar el servidor local de Angular y el Webpack para que nos recompile todo.
+(esto si es exitoso nos devuelve un "Compiled successfully")
+
+Para "mostrar los componentes que hemos creado en LA VISTA, los llamo por su nombre puesto en el 'selector' del component.ts"
+
+
+ *Puedo explorar más en https wwww.angular.io / documentation / cli commands
+
+
+
+
+
+
+
+
+
+
+
+
+
+
