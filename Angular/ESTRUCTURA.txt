@@ -1,0 +1,50 @@
+					Estructura de un proyecto de Angular
+
+				Directorios y archivos
+
+			Vamos a trabajar practicamente dentro de SRC ("Donde estan los componentes")
+
+			Todos los componentes terminan en .ts
+
+			los archivos TSCONFIG -> El compilador que pasa dentro de typeScript, 
+			(como javaScript pero de tipado fuerte).
+
+			Readme.md -> Donde debes empezar a leer para informarte caracteristicas propias y generales 
+			del proyecto en general.
+
+			package.json ->Donde instalamos los paquetes, configuramos dependencias y librerias
+
+			package-lock ->Se genera cuando instalamos módulos de Node
+
+	-	-	Karma.conf.js -> Para configurar pruebas
+|
+|			angular.json -> configurar el proyecto en general! permite hacer assets,
+|			cargar script y librerias y las comprima, un fichero de configuracion 
+|
+|			gitignore -> que fichero no queremos que se guarden en el repo
+|
+|			como por ejemplo node_modules(se guardan las dependencias y librerias) 
+|			porque en cada servidor donde tengamos nuestro proyecto va a estar 
+|			como parte del sistema y es muy pesada.
+|
+|			.editorconfig -> fichero de configuracion para el editor de codigo
+|
+	-	- 	test.ts. -> // This file is required by karma.conf.js and loads recursively all the .spec and framework files
+
+			POLYFILLS.ts * BROWSER - adaptabilidad a diferentes navegadores incluso en versiones antiguas.
+
+
+			MAIN.TS -> de typeScript COMPONENTES, carga el nodulo principal
+
+			INDEX.html -> PLANTILLA PRINCIPAL, DE COMPONENTES PRINCIPAL <APP-ROOT>
+				|
+				|_____ <app-root></app-root> COMPONENTE PRINCIPAL!!!
+				 Se actualiza constantemente
+
+			
+
+
+
+
+
+

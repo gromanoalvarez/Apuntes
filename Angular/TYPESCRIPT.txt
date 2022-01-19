@@ -1,0 +1,1 @@
+Son los componentes y archivos .ts

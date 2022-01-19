@@ -1,0 +1,98 @@
+PRIMERO SE GENERA EL COMPONENTE NUEVO
+SEGUNDO SE ESTABLECE EL ROUTING - RUTA 
+TERCERO SE LO CARGA EN MODULE
+
+
+
+carpeta app/  COMPONENTES POR DEFAULT:
+
+ 1)   app.routing.ts ->  path (rutas)
+							const appRoutes: Routes = [
+					{path: '', component: HomeComponent},
+							] EXPORT
+
+
+2)	app.module.ts -> MODULO PRINCIPAL 
+					"IMPORT COMPONENTES".
+				* Permite cargar configuraciones
+				. IMPORTA EL COMPONENTE A CUALQUIER PARTE DE MI APLICACIóN
+				* es una BUENA PRACTICA con el nombre de mis componentes usar sufijos "component"
+				@NgModule({
+				declarations: [
+					PeliculasComponent,    HeaderComponent,
+				],
+				imports: [ ],
+				providers: [appRoutingProviders], //SERVICIOS
+				bootstrap: [AppComponent], //INDICAR COMPONENTE PRINCIPAL QUE VA A ENTRAR A ESTE MÓDULO
+				})
+				export class AppModule {}
+
+
+
+
+		3)	app.component.ts -> COMPONENTE PRINCIPAL que viene por defecto 
+		tiene la etiqueta <app-root></app-root>
+
+
+ *               CREAR COMPONENTES  (con ANGULAR CLI)
+
+Con un simple comando podemos generar un componente haciendolo más rápido de manera automática 
+            +Todos los componentes que yo necesite CREAR:
+
+            "TODO" LO QUE VAMOS A UTILIZAR DENTRO DE LA APLICACION ES UN COMPONENTE, ES UN TROZO DE PANTALLA.
+
+			CREAR UN COMPONENTE MANUALMENTE
+			Ir a la carpeta AprendiendoAngular/src/app, pero quedaria 
+			sucio, no seria una buena practica, sino debo hacer una carpeta 
+			dentro de app que se llame
+			components y creo carpetas para cada componente 
+			EJ. mi-componente
+
+			CREAR UN MULTICOMPONENTE CON "ANGULAR CLI" por medio del CMD 
+			(donde estaba el ng serve o Angular lanzado abro el cmo)
+			poner en el directorio donde tengo Angular instalado:
+
+	<<<	ng g component component/nombreQueQuieroParaMiComponente >>>
+
+			Esto me CREA en mi directorio los archivos component.html component.ts 
+			(ya lo crea con selector y templateUrl) 
+			component.css y UPDATE(Actualiza) ACTUALIZA MI app.module!!! 
+			(Permite cargar configuraciones para el MÓdulo. 
+			IMPORTA EL COMPONENTE A CUALQUIER PARTE DE MI APLICACIÓN )
+			Es decir: "ya me ha cargado el componente dentro de la aplicación de Angular.
+			para yo utilizarlo donde quiera".
+
+			Una vez creado los multicomponentes para poder utilizarlos 
+			tenemos que VOLVER A LANZAR EL  
+
+	<<<	ng serve  >>>
+
+			Asi puedo empezar el servidor local de Angular y el Webpack para que nos recompile todo.
+			(esto si es exitoso nos devuelve un "Compiled successfully")
+
+			Para "mostrar los componentes que hemos creado en LA VISTA, los llamo por su nombre puesto en el 'SELECTOR'
+
+            EJ   selector: 'app-footer',
+
+			*Puedo explorar más en https wwww.angular.io / documentation / cli commands
+
+
+
+
+    CMD en NG(ANGULAR CMD):
+
++New Component
+    ng generate component carpeta/nombre
++ Angular Material
+    ng add @angular/material
++ Add PWA Support
+    ng add @angular/pwa
++ Add Dependency
+    ng add _____
++ Run and Watch Tests
+    ng test
+
++ Build for Production
+ng build
+
+
