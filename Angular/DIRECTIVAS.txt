@@ -1,0 +1,55 @@
+
+            Son "Atributos de etiquetas" HTML (VISTAS) y que generan una accion
+
+DIRECTIVAS ESTRUCTURALES
+
+a) Si la condicion es verdadera puede mostrar el contenido de la etiqueta html sino lo deja oculto
+    *ngIf="condicionBoolean"
+
+b) Ciclo for, RECORRE UN ARRAY por cada vuelta "genera una variable let que se llame pelicula" del array peliculas,
+    *ngFor="let pelicula of peliculas; let i = index;"
+
+
+DIRECTIVA TEMPLATE (THEN & ELSE)
+(para usar como ELSE, es decir, si es true mostra el div sino mostra el template )
+1ro crear el:
+    <div con *ngIf ="nombre; THEN siHayParametros ELSE noHayParametros">VERDADERO</DIV>
+2do 
+    <ng-template #noHayParametros>FALSO</ng-template>
+    <NG-TEMPLATE #siHayParametros>YES</ng-template>
+
+
+DIRECTIVAS CSS
+
+    [style.background-propio]="pelicula.year > 2016 ? 'green' : 'red' "
+        o
+    [ngStyle]="{
+        'year-green': pelicula.year > 2016",
+        'year-red': pelicula.year < 2016"
+    }"
+
+
+    [class.background-propio]="pelicula.year > 2016 "
+        o
+    [ngClass]="{
+        'year-green': pelicula.year > 2016",
+        'year-red': pelicula.year < 2016"
+    }
+
+
+DIRECTIVA DE VINCULO 
+
+(suplanta el href para que sea un vínculo reactivo)
+    [routerLink]="['/nombreDeLaRuta']"
+Esto cambia el componente y actualiza la URL con la nueva ruta 
+
+
+DIRECTIVA ACTIVE
+
+    [routerLinkActive]="['active']"
+Identifica cuando se usa el componente y aplica la clase CSS .active (en este caso deja subrayado y color fijo)
+
+
+
+
+
