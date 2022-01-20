@@ -1,0 +1,7 @@
+
+DIRECTIVAS CONDICIONAL
+    *ngIf="condicionBoolean"
+
+DIRECTIVA DE VINCULO (suplanta el href para que sea un vínculo reactivo)
+    [routerLink]="['/nombreDeLaRuta']"
+Esto cambia el componente y actualiza la URL con la nueva ruta 

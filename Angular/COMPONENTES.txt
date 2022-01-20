@@ -1,15 +1,14 @@
-PRIMERO SE GENERA EL COMPONENTE NUEVO
-SEGUNDO SE ESTABLECE EL ROUTING - RUTA 
-TERCERO SE LO CARGA EN MODULE
+PRIMERO SE GENERA EL COMPONENTE.ts NUEVO
+SEGUNDO SE LO CARGA EN MODULE.ts - para utilizar el componente x medio de su etiqueta selectora en las vistas
+TERCERO SE ESTABLECE EL ROUTING.ts - RUTA si es necesaria
 
+====================================================================================================
+			 COMPONENTES POR DEFAULT: (carpeta app/)
 
+1)   app.routing.ts ->  path (rutas)
 
-carpeta app/  COMPONENTES POR DEFAULT:
-
- 1)   app.routing.ts ->  path (rutas)
-							const appRoutes: Routes = [
-					{path: '', component: HomeComponent},
-							] EXPORT
+const appRoutes: Routes = [{path: '', component: HomeComponent}];
++ EXPORT
 
 
 2)	app.module.ts -> MODULO PRINCIPAL 
@@ -23,21 +22,18 @@ carpeta app/  COMPONENTES POR DEFAULT:
 				],
 				imports: [ ],
 				providers: [appRoutingProviders], //SERVICIOS
-				bootstrap: [AppComponent], //INDICAR COMPONENTE PRINCIPAL QUE VA A ENTRAR A ESTE MÓDULO
+				bootstrap: [AppComponent], // COMPONENTE PRINCIPAL QUE VA A ENTRAR A ESTE MÓDULO
 				})
 				export class AppModule {}
 
 
-
-
-		3)	app.component.ts -> COMPONENTE PRINCIPAL que viene por defecto 
+3)	app.component.ts -> COMPONENTE PRINCIPAL que viene por defecto 
 		tiene la etiqueta <app-root></app-root>
 
-
- *               CREAR COMPONENTES  (con ANGULAR CLI)
+========================================================================================================
+            CREAR COMPONENTES  (con ANGULAR CLI)
 
 Con un simple comando podemos generar un componente haciendolo más rápido de manera automática 
-            +Todos los componentes que yo necesite CREAR:
 
             "TODO" LO QUE VAMOS A UTILIZAR DENTRO DE LA APLICACION ES UN COMPONENTE, ES UN TROZO DE PANTALLA.
 
@@ -78,21 +74,15 @@ Con un simple comando podemos generar un componente haciendolo más rápido de m
 
 
 
+		EL COMPONENTE CREADO CUENTA 4 ARCHIVOS: 1.ts + 1.html + 1.css + 1spect.ts
 
-    CMD en NG(ANGULAR CMD):
 
-+New Component
-    ng generate component carpeta/nombre
-+ Angular Material
-    ng add @angular/material
-+ Add PWA Support
-    ng add @angular/pwa
-+ Add Dependency
-    ng add _____
-+ Run and Watch Tests
-    ng test
+Puedo crear componentes padres y componentes hijos
 
-+ Build for Production
-ng build
+COMPONENTES PADRES: Se comportan como paginas mismas, es decir son secciones con su propia URL por eso  tienen sus propias rutas hechas 
+
+COMPONENTES HIJOS: Son pequeños componentes dentro de otros.
+
+
 
 

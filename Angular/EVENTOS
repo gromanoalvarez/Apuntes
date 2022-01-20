@@ -1,0 +1,4 @@
+
+
+evento click
+(click)="metodo()"

@@ -1,4 +1,4 @@
-					Estructura de un proyecto de Angular
+					ESTRUCTURA DEL PROYECTO
 
 				Directorios y archivos
 
