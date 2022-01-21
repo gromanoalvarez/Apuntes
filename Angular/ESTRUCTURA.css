@@ -1,10 +1,10 @@
-					ESTRUCTURA DEL PROYECTO
+					/* ! ESTRUCTURA DEL PROYECTO
 
-				Directorios y archivos
+			*	Directorios y archivos
 
 			Vamos a trabajar practicamente dentro de SRC ("Donde estan los componentes")
 
-			Todos los componentes terminan en .ts
+			, Todos los componentes terminan en .ts
 
 			los archivos TSCONFIG -> El compilador que pasa dentro de typeScript, 
 			(como javaScript pero de tipado fuerte).
@@ -36,9 +36,9 @@
 
 			MAIN.TS -> de typeScript COMPONENTES, carga el nodulo principal
 
-			INDEX.html -> PLANTILLA PRINCIPAL, DE COMPONENTES PRINCIPAL <APP-ROOT>
+TODO			INDEX.html -> PLANTILLA PRINCIPAL, DE COMPONENTES PRINCIPAL <APP-ROOT>
 				|
-				|_____ <app-root></app-root> COMPONENTE PRINCIPAL!!!
+!				|_____ <app-root></app-root> COMPONENTE PRINCIPAL!!!
 				 Se actualiza constantemente
 
 			
@@ -47,4 +47,4 @@
 
 
 
-
+ */

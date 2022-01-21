@@ -29,7 +29,7 @@ document.write(`<h1>${coche1.marca} Velocidad actual: ${coche1.velocidad}km/hs</
 
 console.log(coche1);
 
-// HERENCIA, (extends y super) Crear una clase con las propiedades y metodos de otra clase padre
+//! HERENCIA, (extends y super) Crear una clase con las propiedades y metodos de otra clase padre
 
 class Autobus extends Coche {
     constructor(marca, velocidad, antiguedad) {

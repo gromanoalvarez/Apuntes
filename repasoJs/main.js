@@ -86,14 +86,14 @@ nombres.forEach(nombre => document.write("arrow function " + nombre + '<br>'));
 es lo que esta entre { }
 las propiedades van con sintaxis de ""
 los valores si son numericos o booleanos su sintesis es normal pero si es String necesita ""
-Los arrays van "propiedad":["nombre", "apellido"]
+todo    Los arrays van "propiedad":["nombre", "apellido"]
  se puede extender una propiedad dentro de otra y asi sucesivamente de forma infinita
- TODA propiedad se separa con , coma (Menos la ultima)
+ TODoa propiedad se separa con , coma (Menos la ultima)
 */
-// var objeto = JSON.parse('{"nombre": "juan", "edad": 33, "casado": false}');
+//? var objeto = JSON.parse('{"nombre": "juan", "edad": 33, "casado": false}');
 // Esta función permite convertir una cadena en formato JSON en una variable Javascript que contiene la representación del valor de esa cadena.
 
-// Esta función Javascript convierte un objeto, un array u otro valor en su representación como cadena en formato JSON.
+//todo  Esta función Javascript convierte un objeto, un array u otro valor en su representación como cadena en formato JSON.
 // var coche = {
 //     modelo: "Ford Focus",
 //     anioFabricacion: "2020",
@@ -121,19 +121,19 @@ coche.mostrarDatos(); // se visualiza por console.log como esta declarado dentro
 console.log(coche);
 
 
-// AJAX Y FETCH que es la nueva función de Javascript para el acceso a datos del servidor, que devuelve una promesa.
+// ! AJAX Y FETCH que es la nueva función de Javascript para el acceso a datos del servidor, que devuelve una promesa.
 
-// Fetch es una función a la que le indicamos la URL a la que queremos acceder.
-// fetch('https://url/del/servicio/web)
-// Esta función nos devuelve una promesa, que debemos que esperar que se resuelva. Una vez resuelta obtenemos uan respuesta, que nos indica los datos de la solicitud HTTP que se acaba de realizar.
+// todo     Fetch es una función a la que le indicamos la URL a la que queremos acceder.
+//?              fetch('https://url/del/servicio/web)
+// todo             Esta función nos devuelve una promesa, que debemos que esperar que se resuelva. Una vez resuelta obtenemos uan respuesta, que nos indica los datos de la solicitud HTTP que se acaba de realizar.
 
-// .then(response => {
-//     // Código a ejecutar con la respuesta
-// })
+//* .then(response => {
+//*     Código a ejecutar con la respuesta
+//* })
 // Ahora bien, si esa respuesta era en formato JSON podemos acceder al objeto Javascript que representa ese JSON por medio del método response.json(). La dificultad es que este método devuelve a su vez otra promesa, que tenemos que encadenar.
 // El código completo de encadenar dos promesas sería el siguiente:
 
-// fetch('https://url/del/servicio/web')
+//* fetch('https://url/del/servicio/web')
 //   .then(response => response.json())
 //   .then(json => {
 //   // aquí tenemos el parámetro json que contien el dato que nos ha devuelto el servicio web.
@@ -163,9 +163,9 @@ async function obtenerDatos() {
 }
 obtenerDatos();
 
-// PROMESAS ... Promise (resolve, reject)-(then/catch)
+//! PROMESAS ... Promise (resolve, reject)-(then/catch)
 
-/* para peticiones ASINCRONA (como peticiones AJAX), pueden TARDAR UN RATO en devolver un resultado o no devolverlo, son valores que pueden estar disponibles ahora, en futuro o nunca, PROMETE QUE LLEGA UN DATO O UN ERROR */
+//todo           para peticiones ASINCRONA (como peticiones AJAX), pueden TARDAR UN RATO en devolver un resultado o no devolverlo, son valores que pueden estar disponibles ahora, en futuro o nunca, PROMETE QUE LLEGA UN DATO O UN ERROR */
 
 var saludar = new Promise((resolve, reject) => {
     setTimeout(() => { //simula el retraso que sucederia al solicitar algo al servidor
@@ -185,6 +185,6 @@ var saludar = new Promise((resolve, reject) => {
 saludar.then(resultado => {
     alert(resultado);
 });
-saludar.catch(error => { // CAPTURA EL ERROR del REJECT
+saludar.catch(error => { // ! CAPTURA EL ERROR del REJECT
     alert(error);
 });

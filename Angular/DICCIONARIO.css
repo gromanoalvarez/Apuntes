@@ -1,0 +1,126 @@
+  /**
+   *        Probando Mejores comentarios extensión
+   * 
+   * *Informacion importante (mas brillo)
+   * ! No usar este método
+   * ? QUIZAS este método sea expuesto en la API publica
+   * TODO: REFACTORIZACION de método confirmado en la API
+   * @propiedades puedo apuntar sobre parámetros y propiedades
+   * 
+   */
+                /* ! Angular (de Google)
+                -------------------
+ TODO  OBTIMIZADO PARA hacer APLICACIONES WEB SPA (single page applications), interfaz DINAMICA y hace una pagina reactiva,
+ TODO es decir LA PANTALLA NO RECARGA, va por Js.
+TODO La interacción con el Backend va por AJAX (peticiones http asincrona por javaScript).
+! + RÁPIDA.
+
+
+TODO COMPONENTE - CONTROLADOR de un trozo de pantalla, controla y gestiona lo que se ve. mediador entre la "vista" a traves de la "plantilla" y la lógica
+TODO SIEMPRE TERMINA EN .TS
+Intercambia informacion con otros componentes a través:
+?    @Input (de PADRE a hijo)
+ ?   @Output ( de hijo a PADRE)
+
+
+TODO          VISTA o PLANTILLA  (ficheros HTML )
+ la aplicación, de los componentes.  
+ con sintaxis especial de Angular, trabajan con DATA-BLINDING y las DIRECTIVAS.
+
+TODO         LA VISTA Puede utilizar una propiedad del .ts a través del
+! BINDING por INTERPOLACIÓN 
+?{{ propiedad del .ts}}
+ ?           ejemplo -> <h2> {{ titulo }} </h2>
+
+
+
+TODO        SERVICIOS O PROVIDERS: Son CLASES con MÉTODOS para COMPONENTES.
+
+TODO        DECORADORES (de typeScript): Patrón de diseño, configura los metadatos/atributos de las clases y componentes.
+ej:
+
+Ej DECORADOR (características del componente)
+    _||_
+    \  /
+     \/
+@Component({
+    selector:'mi-componente',
+    template:  `<h1>Hola Mundo</h1> `
+});
+
+@Component({
+  selector: 'app-article-edit', <------ nombre o Etiqueta para la vista
+  templateUrl: '../article-new/article-new.component.html', /VISTA DEL COMPONENTE
+  styleUrls: ['./article-edit.component.css'], /ESTILO DEL COMPONENTE
+  providers: [ArticleService], <------------------[PROVIDERS]: DATOS, METODOS.
+});
+
+
+
+TODO LAS DIRECTIVAS: (SE USAN EN LA VISTA .HTML) Son FUNCIONALIDADES al DOM y a los ELEMENTOS HTML. puede generar que un div se muestre o no, o puede dar estilos a elementos entre otros. "Son nuevos ATRIBUTOS para aplicar a la plantilla".
+
+    EJEMPLO
+    DIRECTIVA> [routerLink]="['/blog/crear']"
+        (es como el href, es decir, nos hace un VINCULO un LINK)
+
+
+
+*    MÓDULOS: puedo tener módulos para la aplicacion principal y dentro tener otros para hacer diferentes funcionalidades y reutilizar en otros proyectos.
+    |
+    --->APP.MODULE.TS para que anden las rutas,navegar por urls con angular. Permite cargar configuraciones para el MÓdulo. IMPORTA EL COMPONENTE A CUALQUIER PARTE DE MI APLICACIóN 
+                    ... es una BUENA PRACTICA usar sufijos "component" EJ AppComponent, FooterComponent, ArticleEditComponent
+
+
+
+TODO        ROUTING: Es decir, como crear RUTAS, permite recoger parametros de la URL.
+
+? Pipes | tubos (funcionalidades a las vistas)
+
+* Formularios y validación.
+
+* Eventos (click)
+
+* Peticiones http
+
+* Subida de imagenes
+
+Buscador!!!
+
+Modulos externas instaladas.
+
+==============================================================================================================================================================================================================================================================================================================
+
+
+!                     INSTALACIÓN 
+
+1.Controlar que tenga instalada la ultima version de NodeJs o actualizarla.
+2.Abrir CMD, actualizar npm (gestor de paquetes de NodeJs)
+?    npm install -g npm@latest
+3.Borrar la Cache
+?    npm cache clean --force
+4.Desactivar las auditorias para evitar fallos, temas de seguridad
+?    npm set audit false
+5.Desinstalar En el caso que tenga versiones anteriores de Angular CLI, programa que genera  funcionalidades, servidor local, webpack para comprimir asets, generar builds, generar codigos, generar componentes, etc
+?    npm uninstall -g angular-cli
+?    npm unisntall -g @angular/cli
+6.Borrar la cache nuevamente
+?    npm cache clean --force
+7.Instalar la ultima version de Angular CLI
+?    npm install -g @angular/cli@latest
+8. ir al directorio de nuestro proyecto donde quiera hacer uso de Angular
+?    ng new
+(nos pide nombre del nuevo proyecto)
+(opciones de css)
+9. Arrancar el webpack para que compile  y transcriba los ficheros y lansa un LIVE SERVE y LIVE RELOAD (RECARGA PANTALLA AUTOMATICAMENTE)
+
+ ?   ng serve
+            <<MANTENER EL "NG SERVE" CORRIENDO EN CMD para que funciones el live serve>>
+            <<MANTENER EL "NG SERVE" CORRIENDO EN CMD para que funciones el live serve>>
+!            <<MANTENER EL "NG SERVE" CORRIENDO EN CMD para que funciones el live serve>>
+            <<MANTENER EL "NG SERVE" CORRIENDO EN CMD para que funciones el live serve>>
+
+
+
+
+============================================================================================================================================================================================================================================================================================================== 
+*/

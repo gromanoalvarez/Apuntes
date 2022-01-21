@@ -1,42 +1,44 @@
                     
-                    app.routing.ts 
+                    /* ! app.routing.ts 
 1.Importar los módulos del router de angular   y crear rutas para moverse a traves de la url 
-import { ModuleWithProviders  } from "@angular/core"; //Esta clase importada permite generar un modulo para tenerlo todo separado y cargarlo  dentro del framework 
-import { Routes, RouterModule } from '@angular/router'; //Permitir generar objetos de rutas y el modulo para configurar el frameworks de angular
+? import { ModuleWithProviders  } from "@angular/core"; //Esta clase importada permite generar un modulo para tenerlo todo separado y cargarlo  dentro del framework 
+? import { Routes, RouterModule } from '@angular/router'; //Permitir generar objetos de rutas y el modulo para configurar el frameworks de angular
 
 //2.Importar COMPONENTES COMO PÁGINA EXCLUSIVA
-import { HomeComponent } from "./components/home/home.component";
-import { BlogComponent } from "./components/blog/blog.component";
+? import { HomeComponent } from "./components/home/home.component";
+? import { BlogComponent } from "./components/blog/blog.component";
 
 //3.Array de rutas, configuracion de las rutas
 //es una constante que guarda el array de clase Routes que contiene objetos json que son cada ruta
 //la ruta vacia es la predeterminada cuando carga la pagina
 const appRoutes: Routes = [
-    { //RUTA VACIA
+*   { //RUTA VACIA
         path: '', component: HomeComponent
     },
-    { // PARAMETRO OBLIGATORIO
+*    { // PARAMETRO OBLIGATORIO
         path: 'buscar/:search', component: SearchComponent
     },
-    {//B) SI DUPLICO LA RUTA LA TRANSFORMA PARAMETRO OPCIONAL: Creando una ruta "ANTES" que sea similar pero sin parametro extra
+*    {//B) SI DUPLICO LA RUTA LA TRANSFORMA PARAMETRO OPCIONAL: Creando una ruta "ANTES" que sea similar pero sin parametro extra
         path: 'pagina-de-pruebas', component: PaginaComponent
     },    
-    {//A) PARAMETRO OBLIGATORIO, si no lo pongo me tira a errorComponent
+*    {//A) PARAMETRO OBLIGATORIO, si no lo pongo me tira a errorComponent
         path: 'pagina-de-pruebas/:nombres/:apellidos', component: PaginaComponent
     },
-    { //RUTA DE ERROR//(el path de error ** debe ir si o si al final)
+*    { //RUTA DE ERROR//(el path de error ** debe ir si o si al final)
         path: '**', component: ErrorComponent
     }
 ];
 
+
+
 //4.Exportar el modulo de rutas:
-export const appRoutingProviders: any[] = []; //SERVICIO
-export const routing: ModuleWithProviders<any> = RouterModule.forRoot(appRoutes); //MODULO
+! export const appRoutingProviders: any[] = []; //SERVICIO
+! export const routing: ModuleWithProviders<any> = RouterModule.forRoot(appRoutes); //MODULO
 
 ================================================================================
 
 !!! INTERACTUAR con los PARAMETROS FIJO Y OBLIGATORIO de la  URL: !!!
-EJ.        path: 'pagina-de-pruebas/:nombres/:apellidos', component: PaginaComponent
+TODO        path: 'pagina-de-pruebas/:nombres/:apellidos', component: PaginaComponent
 
 1) Ir al pagina.component.TS
 2) import {Router, ACtivatedRoute, Params} from '@angular/router';
@@ -60,4 +62,4 @@ se usa el _router + routerNavegate
         redirigir(){
             this._router.navigate(['/formulario', puedo PASAR PARAMETROS X URL!!!]);
         }
-
+ */

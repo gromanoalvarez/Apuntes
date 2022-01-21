@@ -1,4 +1,0 @@
-
-
-evento click
-(click)="metodo()"
