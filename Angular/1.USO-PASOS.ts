@@ -57,12 +57,36 @@
 //?      imports:[routing], //MODULO
 //?     providers:[appRoutingProviders] //SERVICIO
 
-// TODO 8) Para que el router funcione  en app.component.html usar la etiqueta:
-//?     <router-outlet></router-outlet>
-
+// TODO 8) Para que el router funcione  
+//! en app.component.html usar la etiqueta:
+//? <app-header></app-header>
+//!     <router-outlet></router-outlet>
+//? <app-footer></app-footer>
 // Esto evitará que sea estático, ya que detecta sobre ruta estoy o deseo y llama a su componente.
 
-// 9)
+//! 9) Todas las páginas tienen que comenzar en su VISTA.html
+//! con las etiquetas de que tienen en común, por ejemplo 
+//! un "slider" o un "sidebar"
+
+//! 10) Algunos componentes van a variar según la página!!!
+//todo              INTERACTIVIDAD
+// si quiero que el componente slider cambie en cada página:
+// le doy una directiva con su nombre y le asigno un valor diferente en cada componente padre que actua como página
+//todo      asi seria en home.component.html
+//!     <app-slider [nombreDirectiva]="'HOLA MUNDO'"></app-slider>
+//todo      pero cambio para en blog.component.html:
+//!     <app-slider [nombreDirectiva]="'HASTA PRONTO'"></app-slider>
+//? De este modo por medio de una decorador 
+//!         @Input
+//? capto ese valor y lo muestro en la "VISTA.html" correspondiente
+//! USO EL DECORADOR @INPUT EN EL HIJO  seguido declaro "directivaParaInput"
+//? export class SliderComponent implements OnInit{
+//!   DECORADOR 
+//!       V   
+//?    @Input() directivaParaInput!: string;
+//?    constructor(){}
+//?    ngOnInit(){}
+//? }
 
 
 

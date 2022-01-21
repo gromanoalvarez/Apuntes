@@ -1,14 +1,3 @@
-  /**
-   * *       Probando Mejores comentarios extensión
-   * 
-   * *Informacion importante (mas brillo)
-   * ! No usar este método
-   * ? QUIZAS este método sea expuesto en la API publica
-   * TODO: REFACTORIZACION de método confirmado en la API
-   * @propiedades puedo apuntar sobre parámetros y propiedades
-   * 
-   */
-
 
 // ! PRIMERO SE GENERA EL COMPONENTE.ts NUEVO
 // ! SEGUNDO SE LO CARGA EN MODULE.ts - para utilizar el componente x medio de su etiqueta selectora en las vistas

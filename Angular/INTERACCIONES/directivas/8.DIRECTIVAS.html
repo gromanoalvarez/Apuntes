@@ -22,20 +22,20 @@ TODO            DIRECTIVA TEMPLATE (THEN & ELSE)
 
 TODO        DIRECTIVAS CSS
 
-    ?[style.background-propio]="pelicula.year > 2016 ? 'green' : 'red' "
+!    [style.background-propio]="pelicula.year > 2016 ? 'green' : 'red' "
         o
-   ? [ngStyle]="{
-     ?   'year-green': pelicula.year > 2016",
-    ?    'year-red': pelicula.year < 2016"
-   ? }"
+!    [ngStyle]="{
+?       'year-green': pelicula.year > 2016",
+?       'year-red': pelicula.year < 2016"
+?     }"
 
 
-  ?  [class.background-propio]="pelicula.year > 2016 "
+!      [class.background-propio]="pelicula.year > 2016 "
         o
-    ?[ngClass]="{
-   ?     'year-green': pelicula.year > 2016",
-  ?      'year-red': pelicula.year < 2016"
- ?   }
+!      [ngClass]="{
+?        'year-green': pelicula.year > 2016",
+?        'year-red': pelicula.year < 2016"
+?       }
 
 
 TODO        DIRECTIVA DE VINCULO 
