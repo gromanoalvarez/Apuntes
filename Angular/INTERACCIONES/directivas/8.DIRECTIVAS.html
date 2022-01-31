@@ -1,6 +1,6 @@
 <!-- 
 !               DIRECTIVAS
-TODO                  Son "Atributos de etiquetas" HTML (VISTAS) y que generan una accion
+*                  Son "Atributos de etiquetas" HTML (VISTAS) y que generan una accion
 
 TODO            DIRECTIVAS ESTRUCTURALES
 
@@ -36,6 +36,18 @@ TODO        DIRECTIVAS CSS
 ?        'year-green': pelicula.year > 2016",
 ?        'year-red': pelicula.year < 2016"
 ?       }
+* directiva ngClass EN COMPONENTE PADRE  para recibir e identificar que estilo poner al slider de cada componente hijo
+COMP. PADRE slider.component.html:
+<div id="slider" [ngClass]="{
+    'slider-big': !size || size == 'big',
+    'slider-small': size == 'small'
+}">
+COMP. PADRE slider.component.ts:
+@Input() size:string;
+
+COMP. HIJO blog.component.html:
+<app-slider [size]="'small'"></app-slider>
+
 
 
 TODO        DIRECTIVA DE VINCULO 
@@ -44,13 +56,41 @@ TODO        DIRECTIVA DE VINCULO
 ?    [routerLink]="['/nombreDeLaRuta']"
 Esto cambia el componente y actualiza la URL con la nueva ruta 
 
-
 TODO            DIRECTIVA ACTIVE
 
 ?    [routerLinkActive]="['active']"
-Identifica cuando se usa el componente y aplica la clase CSS .active (en este caso deja subrayado y color fijo)
+Identifica cuando se usa el componente y aplica la "Clase" CSS .active (en este caso deja subrayado y color fijo)
+
+
+todo     TEXTO VARIABLE DESDE CADA COMPONENTE HIJO:
+APP.COMPONENT.HTML ES EL "COMPONENTE PADRE" DE APP.SLIDER
+Con la [directivaNombre] le paso 'un texto' desde cada componente hijo slider. Desde cada pagina o seccion del nav donde me pare el slider sera diferente ya que cada uno recibira un texto diferente (en este caso el titulo).
+ej:
+<app-slider [directivaNombre]="'Bienvenido a mi web SPA con Angular (desde componente)'"></app-slider>
 
 
 
-
+todo                 DIRECTIVAS DE ATRIBUTO
+opcion 1...  [style.background]  ? si se cumple : si no se cumple   
+            <span class="year" [style.background]="peli.year > 2016 ? 'green' : 'red' " >
+                {{peli.year}}
+            </span>
+opcion 2... 
+                   <span class="year" [ngStyle]="{
+                                        'year-green': peli.year > 2016,
+                                        'year-red' : peli.year < 2016
+                                        }" >
+                    {{peli.year}}
+                </span>
+opcion 3... 
+                   <span class="year" [class.CLASE CREADA EN CSS]="CONDICION" >
+                    {{peli.year}}
+                </span>
+                            <span class="year" [class.year-green]="peli.year > 2016" 
+                    [class.year-red]="peli.year < 2016">
+                    {{peli.year}}
+                </span>
+opcion 4... 
  -->
+
+ 

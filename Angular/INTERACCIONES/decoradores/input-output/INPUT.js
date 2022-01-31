@@ -1,23 +1,17 @@
-//! PASAR INFORMACION ENTRE COMPONENTES
-
 
 //todo                DE PADRE A HIJO
-//!     (de app.component.html a slider.component.ts)
 
-//! PRIMERO "DIRECTIVA" EN EL PADRE 
-//* para pasarle al HIJO
-//!        <app-slider [directivaParaInput]=
-//                  "Hola desde el componente padre">
-//?        </app-slider>
+/**
+ * directiva ngClass EN COMPONENTE PADRE  para recibir e identificar que estilo poner al slider de cada componente hijo
+COMP. PADRE slider.component.html:
+<div id="slider" [ngClass]="{
+    'slider-big': !size || size == 'big',
+    'slider-small': size == 'small'
+}">
+COMP. PADRE slider.component.ts:
+@Input() size:string;
 
-//! SEGUNGO USO EL DECORADOR @INPUT EN EL HIJO  
-//? export class SliderComponent implements OnInit{
-//!   DECORADOR 
-//!       V   
-//?    @Input() directivaParaInput!: string;
-//!             TERCERO  declaro "directivaParaInput"
-//?    constructor(){}
-//?    ngOnInit(){}
-//? }
-
-
+COMP. HIJO blog.component.html:
+<app-slider [size]="'small'"></app-slider>
+ * 
+ */
