@@ -1,8 +1,10 @@
-<!-- Notas y apuntes sobre los  diferentes lenguajes
-y tecnologías aplicadas en los proyectos.
+ Notas y apuntes sobre los  diferentes lenguajes y tecnologías
+ Todos los ejemplos pertenecen al proyecto de Angular:
+# link 
+`https://github.com/gromanoalvarez/Frameworks`
 
 ! PARA VER EN COLOR:  
--->
+
 Ve a extensiones y descarga `Better Comments`
 
 
