@@ -42,8 +42,10 @@ Ofrece Comunicacion con el Backend (NodeJs)
 Sacar info de la base de datos (MongoDB) y mostrarla en el frontend
 (iniciar mongod, usar postman y correr el Api rest con NodeJs).
 
-La ruta en postman para sacar todos los artículos es:
+La ruta en postman para "mostrar todos los artículos" es:
 *?     GET>   http://localhost:3900/api/articles
+la ruta la cree en el Backend/routes/article.js
+*?     router.get('articles/:last?', ArticleController.getArticles);
 
 *! 1ERO  CREO MODELO  >     article.ts (con mismas propiedades del backend)
 *? export class Article {
@@ -63,7 +65,6 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 *? import {Article} (creado en el paso anterior)
 *!(6to) import {Global} from '';
-
 @Injectable()
 *todo   export class ArticleService{
 *?            public url: string;
@@ -76,8 +77,12 @@ import {Observable} from 'rxjs';
                 return "Soy el servicio de articulos";
             }
 *!(7mo) uso el servicio HTTP(imito la ruta del backend) y hago la PETICION AJAX
-*?          getArticles():Observable<any>{
-*TODO           return this._http.get(this.url+'articles');
+*?          getArticles(last:any = null):Observable<any>{
+*?              const articles = 'articles';
+                if(last != null){
+*?                    articles = 'articles/true';
+                }
+*TODO           return this._http.get(this.url+articles);
             }
         }
 
@@ -99,18 +104,21 @@ constructor(
 ){}
 ngOnInit(){
 *?    console.log(this._articleService.probando());
-*! (8vo) utilizo el metodo getArticles de la PETICION AJAX con el "metodo subscribe del observable"
-*?      this._articleService.getArticles().subscribe(
-            response=>{
+*! (8vo) utilizo el metodo getArticles de la PETICION AJAX con el "metodo subscribe() del observable"
+
+*?   this._articleService.getArticles().subscribe(
+      {
+        next: (response) => {
                 *! (10mo) guardo la response en la variable articles
-*?                if(response.articles){
-*?                    this.articles=response.articles;
-                }
-            },
-            error=>{
-                console.log(error);
-            }
-        );
+          if(response.articles){
+*?          this.articles = response.articles;
+          }
+        },
+        error: (error) => console.log(error)
+      }
+    );
+
+
 }
 *! 11avo muestro los titulos de cada articulo del backend en la vista > blog.component.html
 *?    <div class="article-item" ngFor="let article of articles">
@@ -128,6 +136,8 @@ export const Global = { url: 'http://localhost:3900/api/' };
 
 
 
+<<<Si quisiera mostrar solo 5 articulos y usar el parametro opcional en la linea 109 puedo pasarlo como getArticles(true). 
+De hecho en otro componente el home.component.ts se reutiliza este metedo pero con parametro opcional agregado asi muestra menos articulos>>>
 
  *
  */

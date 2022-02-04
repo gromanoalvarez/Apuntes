@@ -29,10 +29,10 @@ usuarios:
     email: "datos"
 }
 
-!       Ejecutar MONGODB:
+!                      Ejecutar MONGODB:
 ? C:\Program Files\MongoDB\Server\5.0\bin
-todo    ABRIR Y DEJAR CORRIENDO  "mongod"
-todo     ABRIR "mongo" (poner help si quiero ver los comandos)
+todo        ABRIR Y DEJAR CORRIENDO  "mongod"
+todo        ABRIR "mongo" (poner help si quiero ver los comandos)
 
 * 1.Crear una base de datos:
     use "nombre de la nueva base de datos (en este caso pruebas1)"
@@ -125,7 +125,7 @@ Primero posicionarme en la base de datos que quiero borrar e ingresar el comando
 *7. Para ELIMINAR una collections:
     db.NombreCollection.drop()          
 
-*8 .Buscar y REMOVER 1 SOLO DOCUEMNTO SEGUN UN CAMPO
+*8 .Buscar y REMOVER 1 SOLO DOCUMENTO SEGÚN UN CAMPO
     db.products.remove({"name": "keyboard"})
 *9. BUSCAR Y REMOVER TODOS LOS DOCUMENTOS
     db.products.remove({})

@@ -6,6 +6,14 @@ TODO            DIRECTIVAS ESTRUCTURALES
 
 a) Si la condicion es verdadera puede mostrar el contenido de la etiqueta html sino lo deja oculto
 ?    *ngIf="condicionBoolean"
+ej.
+<div class="loading" *ngIf="!articles">
+    Cargando...
+</div>
+<div  *ngIf="articles">
+    <h1>Agrego todo el html que quiera</h1>
+</div>
+
 
 b) Ciclo for, RECORRE UN ARRAY por cada vuelta "genera una variable let que se llame pelicula" del array peliculas,
  ?   *ngFor="let pelicula of peliculas; let i = index;"
