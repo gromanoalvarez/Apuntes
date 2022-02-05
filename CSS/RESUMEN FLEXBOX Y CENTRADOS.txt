@@ -1,0 +1,33 @@
+trabajo en FLEXBOX
+APUNTES
+
+
+ Para centrar una imAgen o link... 
+1. Creo clase contenedora o padre
+
+2. Al padre le pongo text aling: center
+
+
+ Para centrar un bloque... :
+ 1. Wigth del 80% para que no ocupe todo el ancho
+2. Margin : auto
+
+
+ 
+Flexbox:
+
+ Se hace la clase el padre y y los hijos van a tener características
+
+ justify content: center (para alienar los hijos al centro
+
+Justify content : space around (da espacio incluyendo los extremos al margen
+
+ Flex wrap: wrap; deja de meterlos en una sola linea
+
+Con wigth :calc ( 50% 5px) ;manda filas de a 2
+
+ Y además activar flexbox box sizing pera que no tome Padín ni border de los Flex al ordenarlos
+Box sizing: border box;
+ Ej.
+
+ main{ width: 80%; margin:auto; } .contenedor{ display: flex; justify-content: space-between; } .contenedor article{ width: calc(50% - 20px); } .contenedor iframe{ width: 100%; height: 300px; border:0; }

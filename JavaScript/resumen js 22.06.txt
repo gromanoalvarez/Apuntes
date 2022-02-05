@@ -1,0 +1,327 @@
+
+					JAVA SCRIPT
+
+		EVENTOS (para hacer modificaciones a traves del DOM)
+
+Si yo no uso eventos.. y declaró una acción en el js... Lo que debo hacer para que no me tiré error es dentro del HTML vincular mí js al final del body! Xq de manera contraria si carga primero el js quiere hacer la acción pero el HTML está vacío y tira error
+Otra opción es poner la acción dentro del evento windows.onload=function (){acciónes a realizar ni bien se carga la página}
+
+	EVENTOS DE PÁGINA
+onload Al cargar la página <body>
+onunload Al abandonar la página <body>
+onresize al achicar o  agrandar la ventana del navegador <body>
+EJ.
+window.onload = function(){LO QUE QUIERO QUE PASE CUANDO CARGUE LA PAGINA}
+
+	EVENTO TECLADO	
+onkeyup dejar de teclear 
+onkeypress presionar una tecla 
+onkeydown presionar una tecla sin soltar
+Ej. onkeyup = "function()"
+Eso se pone como atributo en la etiqueta HTML que quiero registre un cambio cuando ese evento suceda. Onkeyup es el evento cuando se ingresa un valor por teclado.
+
+	EVENTO DE MOUSE
+onclick al hacer click 
+ondblclick al hacer doble click 
+onmouseover al pasar el mouse
+onmousedown mientras tengo presionado el mouse
+onmouseup cuando suelto el mouse
+onmousemove cuando muevo el mouse
+Ej. 
+1.HTML: <button onclick ="muestraMensaje()">Hace click aqui</button>
+2.JS: function muestraMensaje(){alert("Este es un evento");}
+
+TAMBIEN PUEDO ENVIAR PARAMETROS
+<button onclick ="cambiarColor('#02j23j')">Hace click aqui</button>
+2.JS: function cambiarColor(colorDeseado){
+ document.getElementById("etiquetaColorida").style.backgroundColor=colorDeseado;
+}
+
+NOTA cuando se agrega varias declaraciones usar "comillaDoble ('comillaSimple')"
+
+	EVENTOS de FORMULARIOS
+onfocus seleccionar un elemento PARA <button>, <input>, <label>, <select>, <textarea>, <body>
+onblur deseleccionar un elemento PARA <button>, <input>, <label>,<select>, <textarea>, <body>
+onsubmit enviar un formulario PARA <form>
+onreset al resetear un  formulario PARA <form>
+onchange deseleccionar un elemento que fue modificado PARA <input>, <select>, <textarea>
+Ej.
+Si un button está dentro del form envía el formulario... Pero si está fuera no hace nada.
+
+
+		Prompt = PEDIR DATO
+var numeroUno = parseInt(prompt("Ingrese un numero"));
+
+		MOSTRAR DATOS
+//popup
+alert ("");
+//en el documento HTML
+document.write ("");
+//en la consola
+console.log = syso de java
+
+		PARSEAR DATOS
+• isNaN(variable);
+//devuelve true si no lo es isNaN esto no es un número( devuelve un boolean)
+• parseInt(variable);
+//convierte en número entero
+• parseFloat(variable);
+//convierte en número flotante
+• String(variable);
+//convierte en cadena de texto
+
+		VARIABLE (var) ,
+Number:  Numéricos incluidos númerosnegativos y decimales
+String: Cadenas de Texto. Comillas simples o
+dobles.
+Boolean: Valores posibles true o false
+Null: Nulos o vacíos
+Undefined: Sin definir, cuando una variable no fue
+inicializada.
+Symbol: Nuevo tipo en JavaScript introducido
+en la versión ECMAScript Edition 6
+
+ no pueden empezar con numero 
+Declarar Contantes = cons NOMBRE=""; (Escribir nombre en mayuscula o uppercase)
+Convención para los nombres de Variables:
+camelCase
+
+		Ámbito de las variables
+	1. Variables locales
+El ámbito de una variable (llamado "scope" en inglés) es la zona del programa en la que
+se define la variable. JavaScript define dos ámbitos para las variables: global y local.
+Al ejecutar el código anterior no se muestra ningún mensaje por pantalla. La
+razón es que la variable ”mensaje” se ha definido dentro de la función creaMensaje() y por
+tanto, es una variable local que solamente está definida dentro de la función.
+Cualquier instrucción que se encuentre dentro de la función puede hacer uso de esa
+variable, pero todas las instrucciones que se encuentren en otras funciones o fuera de
+cualquier función no tendrán definida la variable “mensaje”.
+function creaMensaje() {
+var mensaje = “Mensaje de prueba”;
+}
+creaMensaje();
+alert(mensaje);
+
+	2. Variables globales
+Está definida en cualquier punto del programa (incluso dentro de cualquier función).
+La variable ”mensaje” se ha definido fuera de cualquier función.
+Este tipo de variables automáticamente se transforman en variables globales y están
+disponibles en cualquier punto del programa (incluso dentro de cualquier función)
+Si en el interior de una función, las variables se declaran mediante var se consideran
+locales y las variables que no se han declarado mediante var, se transforman
+automáticamente en variables globales.
+¿Qué sucede si una función define una variable local con el mismo nombre que una
+variable global que ya existe? En este caso, las variables locales prevalecen sobre las
+globales, pero sólo dentro de la función:
+
+		Document Object Model (DOM)
+ARBOL DE ELEMENTOS QUE SE CARGAN CUANDO LO HACE EL HTML.
+DOM define 12 tipos de NODOS, aunque las páginas  HTML habituales se pueden
+manipular manejando solamente cuatro o cinco tipos de nodos:
+1. Document
+RAIZ del que derivan todos los demás nodos del árbol.
+2. Element
+Representa ETIQUETAS HTML. Se trata del único nodo que
+puede contener atributos y el único del que pueden derivar otros nodos.
+3. Attr
+representar ATRIBUTOS de ETIQUETAS HTML, es decir, uno por cada par atributo=valor.
+4. Text
+contiene el TEXTO ENCERRADO por una etiqueta HTML.
+5. Comment
+COMENTARIOS en la página HTML.
+
+	DOM - TIPOS DE ACCESO A NODOS
+las funciones DOM para acceder de forma directa a cualquier nodo del árbol. Es decir, su
+consulta, modificación y su eliminación solamente es posible después de que la
+página HTML se cargue por completo.
+DOM proporciona dos métodos alternativos para acceder a un nodo específico:
+1. Acceso a través de sus nodos padre:
+Las funciones que proporciona DOM para acceder a un nodo a través de sus nodos padre
+consisten en acceder al nodo raíz de la página y después a sus nodos hijos y a los nodos hijos
+de esos hijos y así sucesivamente hasta el último nodo de la rama terminada por el nodo
+buscado. 
+	ej.: header.seccion.article.p
+2. Acceso directo.
+Sin embargo, cuando se quiere acceder a un nodo específico, es mucho más rápido
+acceder directamente a ese nodo y no llegar hasta él descendiendo a través de todos sus
+nodos padre.
+
+a) getElementsByTagName(nombreEtiqueta) FORM INPUT
+obtiene todos los elementos de la página HTML cuya ETIQUETA sea igual
+que el parámetro que se le pasa a la función.
+var parrafos = document.getElementsByTagName("p");
+El valor devuelto es un ARRAY de nodos DOM, no un array de cadenas de texto o un
+array de objetos normales
+
+b) getElementsByName() - FORM RADIO
+Se buscan los elementos cuyo atributo “NAME” sea igual al parámetro
+proporcionado. TRAE UN ARRAY
+
+c) getElementById() 
+Devuelve el UNICO elemento HTML cuyo ATRIBUTO coincide con un UNICO ID.
+var nombre = document.getElementById("nombre");
+
+	ACCESO a los ATRIBUTOS HTML
+a) var nombre=document.ElementById("etiqueta").value // SACAR VALOR DE UN CAMPO DE FORMULARIO O INPUT!!!!
+b) document.getElementById("etiquetaDos").innertHTML= "<p>HOLA</p>" // INSERTAR TEXTO
+c) document.getElementById("etiquetaTres").style.backgroundColor= azul// ACCEDE A PROPIEDAD CSS
+d) Como la palabra CLASS está reservada por JavaScript, no es posible utilizarla para
+acceder al atributo class del elemento HTML. En su lugar, DOM utiliza el nombre "className" para
+acceder al atributo class de HTML
+e) document.getElementById("cantidad").disabled=true;
+
+	CREAR NUEVOS NODOS EN HTML	
+utilización de tres funciones DOM:
+1. createElement(etiqueta): crea un nodo de tipo Element que representa al elemento HTML cuya
+etiqueta se pasa como parámetro.
+2. createTextNode(contenido): crea un nodo de tipo Text que almacena el contenido textual de los
+elementos HTML.
+3. nodoPadre.appendChild(nodoHijo): añade un nodo como hijo de otro nodo. Se debe utilizar al menos dos veces con los nodos habituales: en primer lugar se añade el nodo Text como hijo del
+nodo Element y a continuación se añade el nodo Element como hijo de algún nodo de la página.
+/ Crear nodo de tipo Element
+var parrafo = document.createElement("p");
+// Crear nodo de tipo Text
+var contenido = document.createTextNode("Hola Mundo!");
+// Añadir el nodo Text como hijo del nodo Element
+parrafo.appendChild(contenido);
+// Añadir el nodo Element como hijo de la pagina
+document.body.appendChild(parrafo);
+
+	ELIMINAR NODOS EN HTML
+utilizar la función removeChild(nodo que se va a eliminar).
+debe ser invocada desde el elemento padre de ese nodo que se quiere eliminar.
+ se invoca a la función removeChild() desde el valor parentNode del nodo que se quiere eliminar. Cuando se elimina un nodo, también se eliminan automáticamente todos los nodos hijos que tenga, por lo que no es necesario borrar manualmente cada nodo hijo.
+
+		VALIDAR FORMS EN JS que no estén vacíos:
+ 	(siempre con return false para que no se resetee todo)
+
+HTML atributo onsubmit="función()"
+
+Evento que se activa cuando se envía formulario
+Pero lo que pasa al enviar formularios es que la página se refresca... Entonces el error que quiero mostrar en pantalla se va rapidamente
+Por eso debo usar HTML atributo onsubmit="return función()"
+
+Y dentro de la función se retorne FALSE... Así sigue mostrando el error en pantalla
+
+En formulario de tipo RADIO que tiene opciones debo usar getElementByName... Y eso me trae todas las opciones que debo guardar en un Array
+Y puedo recorrer el ARRAY con un for "in" para fijarme si algún a opción está confirmada..(CHECKED-tildada)
+
+Ej.
+Var opciones=dociment.getElementByName("sexo");
+For(i in opciones){
+  
+	If(opciones[i].checked){
+		
+Return true
+	
+}
+
+}
+
+Términos y condiciones también se verifica con su elementById("condiciones").checked
+
+
+		EXPRESION REGULAR EN JS
+: se declaran en js y se guarda en una variable. 
+
+	USO:
+     expresionRegular.test(valoraEvaluar)
+Ej. regexCampoNumerico.test(document.elementById("número").value)
+
+	DECLARACION:
+Var regexCampoNumerico=/^[0-9]{3}$/
+
+/^ inicio .... [0-9] analizar valores númerico....{3}cantidad que pido.. $/ cierre
+En vez de {cantidad deseada} puedo simplemente usar el + eso significa cantidad cualquiera
+
+
+-----------------------------
+
+		addEventListener Es un ESCUCHADOR de eventos
+
+Le agrega un manejador de eventos a un elemento. 
+
+Sintaxis:
+element.addEventListener(event, function);
+
+Ejemplo:
+var boton= document.getElementById("boton");
+
+boton.addEventListener("click", function(){
+ 	LO QUE QUIERO QUE PASE
+});
+
+	ESCUCHADOR para Obtener el valor de una TECLA
+
+document.addEventListener('keydown',function(e){
+	console.log(e);
+});
+e.key;
+//muestra la tecla pulsada
+e.keyCode;
+//muestra el codigo de tecla
+
+	 ESCUCHADOR de Eventos del MOUSE
+document.addEventListener('mousemove',function(e){
+	var x=e.screenX; // screenX muestra la posición x
+	var y=e.screenY; // screenY muestra la posición y
+});
+
+document.addEventListener('mousedown',function(e){
+	console.log('Mouse Apretado');
+});
+
+document.addEventListener ('mouseup',function(e){
+	console.log('Suelto mouse');
+});
+
+document.addEventListener('mousedown',function(e){
+	console.log('Mouse Apretado');
+});
+//e.which muestra el botón del mouse que fue apretado con 1IZQUIERA 2DERECHA 3RUEDITA
+
+document.addEventListener('mousewheel',function(e){
+	console.log(e.deltaY); 
+}); 
+// deltaY muestra  positivos cuando la ruedita del mouse gira arriba y negativos hacia abajo.
+
+
+
+-----------------------------------------
+			
+		Intervalos
+
+Intervalo, ejecutar unas instrucciones cada x  cantidad de tiempo.
+DECLARACION:
+setInterval(función,tiempo en milisegundos);
+
+EJEMPLO:
+setInterval(function(){
+	funcion();
+},1000);
+
+Frenar un intervalo:
+clearInterval(nombreIntervalo);
+
+Tiempo definido:
+setTimeout(function(){
+	funcion()
+},1000);
+
+
+-----------------------------------------------------------
+	
+		Local Storage
+Guardar:
+localStorage.setItem ("nombreVariable",valor); // le paso nombre y la creo
+
+Obtener:
+localStorage.getItem("nombreVariable"); //me devuelve el valor
+
+Borrar:
+localStorage.clearItem("nombreVariable"); // le paso el nombre y la elimina
+
+---------------------------------------------------------
+
+
+

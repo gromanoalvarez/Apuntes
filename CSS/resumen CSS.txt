@@ -1,0 +1,42 @@
+RESUMEN X WP
+
+plataformamua.com.ar
+TRANSITION EJEMPLO WEB
+
+
+Alingn items... control en flexbox sobre eje horizontal cuando tienen diferente tamaño las cajas
+
+
+ Las etiquetas de bloque (las anchas) se centran con width:80% y margin:Auto
+
+
+Los iconos se pueden cambiar de color xq son fuentes.. sacar de  página recomendada
+
+
+ Posición: static...predeterminada
+[18:48, 19/5/2021] Cel Calera Congreso: Posición: relativo... Para mover un poco y superponer
+
+
+ Posición: absoluta... Para mover con respecto a la pantalla en general.
+
+
+ Posición: fixed... Para que al escrolear no se mueva
+
+
+Puedo usar Z INDEX con números en casa cosa y darle jerarquía... Cuando un elemento tiene mayor z index se superpone sobre el otro
+
+
+ También puedo combinar posición absoluta y relativa
+
+
+ Ej. En imágenes que contienen etiqueta de palabras o texto como precio
+
+
+ Para esto necesito que la clase contenedora o padre  tenga posición relativa(en este caso la imagen)... Y las clase hijas (precio) posición absoluta - ya no lo toma fijo con relación a la  pantalla en general sino como dentro de la imagen
+
+Importante.  Las etiquetas de bloque las centro con MARGIN AUTO
+
+
+ Las imágenes que son etiqueta de linea para centrarse hay que usar TEXT ALING CENTER
+
+ Para las imagemes. Usar MAX WIDHT 100%.. Para que se adapten al ancho del contenedor y no se sobrepase

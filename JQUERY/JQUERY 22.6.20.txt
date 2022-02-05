@@ -1,0 +1,171 @@
+
+			libreria JQUERY
+ 
+Trabajando con librerías(código en una web) : puedo entrar en jQuery UI o jQuery core y enlazar en HTML la URL ... O sino descargarlo en mí carpeta y luego enlazar la carpeta. Para enlazar de cualquier manera uso la etiqueta <script src="">
+
+El código de jquery se vincula al HTML antes que archivo de js... 
+
+	SELECTORES:
+
+
+$('*'); todos los elementos
+$("etiqueta o elemento")
+;
+$(".clase")
+;
+$("#id");
+$("etiqueta:hover");
+$("etiqueta[atributo=valor]"); 
+$("etiqueta[atributo=valor]:checked"); selector por ATRIBUTO para inputs RADIO
+$("etiqueta[atributo!=valor]"); elementos de atributo con valor distinto al puesto
+$("etiqueta[atributo^=valor]"); elementos de atributo que comienza con este valor puesto
+$("etiqueta[atributo|=valor]");elemento que comienza con el string seguido de "-"
+$("etiqueta[atributo*=valor]");cuyo valor contiene el puesto
+$("etiqueta[atributo~=valor]"); igual al anterior pero delimitado por espacios
+$("etiqueta[atributo$=valor]"); cuyo valor termina con el puesto
+
+	selectores de formulario
+(:input, :button, :checkbox, :submit, :text, :image, :hidden, :file, :password, etc.)
+
+	selectores de filtros de formulario
+(:disabled, :enabled, :checked y :selected)
+
+
+	selectores de filtros de VISIBILIDAD
+:hidden ESTADO OCULTO
+:visible ESTADO VISIBLE
+
+	CONSULTAR POR ESTADOS
+$("selector").is(":estado");
+$("selector").is(":visible"); 
+ej...
+if($(".texto").is(":visible")){hace algo}; //si el texto esta visible hace algo
+
+
+
+
+	EVENTOS //Incluyen "funciones anonimas": function(){}
+
+EJ1. para dar inicio a mi libreria:
+
+$(selector).evento(function(){acción;});
+$(window).load(function(){accion;}); // NO se ejecutan hasta que se cargue TODO el
+contenido…
+// ES LO MISMO QUE EN JS "WINDOWS.ONLOAD=FUNCTION(){}" Y SIN EL "ON"
+
+	o tambien puede ser:
+$(document).ready(function(){
+accion}); //  SI se ejecuta cuando el DOM se encuentra disponible, aunque el contenido no se haya cargado aún
+
+EJ2. para cuando se teclea en formulario:
+
+$('SELECTOR').keyup(function(){
+	console.log($('nombre').val());
+});
+
+EJ3. para inputs RADIO con EVENTO que detecta CAMBIO
+
+$("input[name='lenguaje']").change(function(){
+	console.log("input[name='lenguaje']:checked").val()); //los : para conocer el estado 
+});
+
+	 METODOS predeterminados
+$("Selector").metodo(parametro opcional);
+
+$("h3").hide(); // pone en html DISPLAY NONE Y OCULTA CONTENIDO
+		//$("nav").fadeOut(); OCULTAR/apagar por difuminacion
+$("h3").show(); // MUESTRA EL CONTENIDO
+		//$("nav").fadeIn(); MOSTRAR/prender por difuminacion
+$('nombre').val();  //nos da el VALOR de la etiqueta
+
+	metodos para clases
+1ro. $("p").removeClass(clase1, clase2, .., claseN) // ELIMINA CLASES
+2do. $("p").addClass("nueva clase"); //AGREGA CLASES
+OTRA.  hasClass(nombre de la clase) ELIMINA CLASES
+
+.removeProp(“propiedad” , “valor”) (elimina propiedades de los elementos seleccionados).
+.removeAttr(“propiedad” , “valor”) (elimina atributos de los elementos seleccionados).
+
+
+	MANIPULACION
+1ro).empty(); (elimina del DOM todos los hijos de los elementos devueltos por el selector)
+2do).append(lo que quiero agregar); VA AGREGANDO UNO TRAS OTRO
+sino).text(lo que quiero que pise a lo anterior); PISA el texto (hace las dos acciones anteriores en una linea)
+
+.clone() (clona los elementos obtenidos en el selector)
+
+.css(propiedad [, valor]) (devuelve / setea el valor de una propiedad CSS)
+.detach() (elimina del DOM los elementos devueltos por el selector)
+
+.appendTo() (inserta el contenido especificado en el parametro al final de cada elemento
+obtenido por el selector)
+.insertAfter() (inserta cada elemento luego del nodo del arbol del
+DOM seleccionado)
+.insertBefore() (inserta cada elemento devuelto por el selector antes del nodo del arbol del
+DOM seleccionado)
+
+	EXPRESIONES REGULARES JQUERY
+selector.val().match(expresionRegular);	
+
+
+--------------------------
+
+/* 
+          ocultar/mostrar menu
+
+      opcion1   - jquery copiado
+
+$(document).ready(function(){ 
+  $("a.desplegable").click(function(){
+	$(this).parent().find("nav.menu").slideDown('');// "THIS" REFIERE AL PRIMER ELEMENTO QUE GENERO LA ACCION DEL EVENTO (en este caso seria "a.desplegable" 
+   },
+        function() {
+          $(this).parent().find("nav.menu").slideUp('');
+        }                        
+    );
+});
+
+      opcion2 - JS (TAMBIEN PARA GIFTCARD)
+
+1 meter onclick en HTML onclick="mostrarOcultar()"
+2 function mostrarOcultar(){
+    if(document.getElementById("boton").value=="ocultar")
+         //ocultar
+          document.getElementById("a.desplegable").style.display="none";
+         //cambiar value del input
+         document.getElementById("boton").value="mostrar";
+   } else {
+           document.getElementById("a.desplegable").style.display="block";
+          document.getElementById("boton").value="ocultar";
+   }
+}
+
+	OPCION 3 JQUERY EN CLASE
+
+$(document).ready(function(){
+	$("nav").hide(); //oculta menu
+	$("abrir").click(function(){ //evento de click en boton de menu desplegable
+		$("nav").show(); //mostrar menu
+		//$("nav").fadeIn(); otra opcion de prender por difuminacion
+	});
+	$("cerrar").click(function(){ //evento de click en boton de menu desplegable
+		$("nav").hide(); //ocultar menu
+		//$("nav").fadeOut(); otra opcion de apagar por difuminacion
+	});
+});
+
+	OPCION 4 JQUERY del archivo CLASE 11 MENU RESPONSIVE
+
+$(document).ready(function(){ 
+  $("a.desplegable").click(function(){
+	if($(".menu").is(":visible")){ // si el mennu esta en estado visible
+		$(".menu").slideUp(); //lo sube
+	}else{
+		$(".menu").slideDown(); //lo baja
+   }
+});
+
+*/
+
+
+

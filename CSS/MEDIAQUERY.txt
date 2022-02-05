@@ -1,0 +1,55 @@
+/* MEDIAS QUERIES - 1CELULAR 2TABLET 3PC -
+1ro las "fuentes" (font-size) poner en unidad em.
+2do: en la media trabajar las fuentes con %.
+@media screen and (min-width:47em){ body{
+ font-size: 90%;
+ }
+}
+@media screen and (min-width:60em){ body{
+ font-size: 100%;
+ }
+}
+3ro: "columnas"
+.col{
+ background-color: #7b1873;
+ margin-top:1em;
+}
+@media screen and (min-width:47em){
+ .contenedor{
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: space-between;
+ }
+ .col{
+ width:calc(50% - 1em);
+ }
+}
+@media screen and (min-width:60em){
+ .col{
+ width:calc(33% - 1em);
+ }
+}
+4to: "imagenes responsivas"
+img{
+max-width: 100%;
+height: auto;
+}
+5to: "videos responsives"
+.contenedor {
+ position: relative;
+ padding-bottom: 56.25%;
+ height: 0;
+}
+.contenedor iframe{
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+}
+*/
+
+1EM=16PX
+EM:para tamaños de fuentes, márgenes, paddings.
+
+%porcentaje. Para anchos de columnas, imágenes y video
