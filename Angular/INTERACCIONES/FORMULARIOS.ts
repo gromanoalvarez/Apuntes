@@ -26,9 +26,9 @@ hay que vincular el "form" a un "Objeto"(user) que sera un "Modelo" y utilizar [
 
 5TO definir la funcion onSubmit (){} en formulario.component.ts
     onSubmit(){}
-
 6TO NOMBRAR al FORM con  
     #userForm="ngForm"
+*todo (El # permite crear una variable a la cual le asigno el valor de un form de angular)
 7MO NOMBRAR los INPUTS con 
     #nameDelInput="ngModel"
 8VO INDICAR que PROPIEDAD DEL OBJETO (USER) MODIFICARA en el archivo formulario.component.ts  usando 

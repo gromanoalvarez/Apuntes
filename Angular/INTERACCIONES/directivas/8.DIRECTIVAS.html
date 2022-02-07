@@ -24,7 +24,7 @@ b) Ciclo for, RECORRE UN ARRAY por cada vuelta "genera una variable let que se l
  ?   *ngFor="let pelicula of peliculas; let i = index;"
 
 
-TODO            DIRECTIVA TEMPLATE (THEN & ELSE)
+TODO            DIRECTIVA <NG-TEMPLATE> (THEN & ELSE)
 (para usar como ELSE, es decir, si es true mostra el div sino mostra el template )
 1ro crear el:
     ?<div con *ngIf ="nombre; THEN siHayParametros ELSE noHayParametros">VERDADERO</DIV>
@@ -67,6 +67,7 @@ TODO        DIRECTIVA DE VINCULO
 
 (suplanta el href para que sea un vínculo reactivo)
 ?    [routerLink]="['/nombreDeLaRuta']"
+?       [routerLink]="['/blog/crear']"
 Esto cambia el componente y actualiza la URL con la nueva ruta 
 
 TODO            DIRECTIVA ACTIVE
