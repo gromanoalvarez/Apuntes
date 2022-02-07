@@ -23,12 +23,12 @@ En el formulario se tiene que poder completar y enviar datos al backend a la bas
 *?    {path: 'blog/crear', component: ArticleNewComponent},
 *?  ]
 
-*! 3 Hago el vinculo con la directiva [routerLink] en el button que está en la vista del Sidebar: sidebar.component.html >
+*! 3 Hago el vínculo con la directiva [routerLink] en el button que está en la vista del Sidebar: sidebar.component.html >
 *?  <a [routerLink]="['/blog/crear']">Crear articulo</a>
 
 *! 4   article-new.component.html >
-*todo      Esta es la VISTA del FORMULARIO para crear nuevo articulo, 
-*todo       Aca hacemos un FORMULARIO que rellene todas las propiedades del nuevo articulo
+*todo      Esta es la VISTA del FORMULARIO para crear nuevo artículo, 
+*todo       Aca hacemos un FORMULARIO que rellene todas las propiedades del nuevo artículo
  *todo      ya tengo en el hecho un modelo article.ts que coincide con el backend 
  ////......................................
 ** recordatorio! este es el MODELO para construir articulos: article.ts >
@@ -61,7 +61,7 @@ export class Article{
 
     <label for="image">Imagen de la publicación </label>
 *?  <input type="file" name="file0" #image="ngModel" [(ngModel)]="article.image"/>
-*todo               (^ACA SE PUEDE USAR UN PLUGGING PARA SUBIR IMAGENES EN ANGULAR, file0 coincide con el params del backend)
+*todo               (^ACA SE PUEDE USAR UN PLUGGING PARA SUBIR IMAGENES EN ANGULAR (ver apunte de librerias-externas), file0 coincide con el params del backend)
 *?  <input type="submit" value="Guardar" [disabled]="articleForm.invalid" />
 *todo               (^ Indico que si no se cumplen los required no se envie)
 
@@ -75,7 +75,7 @@ constructor(){
     this.article= new Article('','','','',null);
 }
 onSubmit(){ ////    enviar los datos al backend
-    HACER Y CARGAR EL SERVICIO
+    HACER Y CARGAR EL SERVICIO (ver paso 7)
 }
 
 
