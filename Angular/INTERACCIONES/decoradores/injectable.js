@@ -1,5 +1,5 @@
 /**
- * 
+ * import{Injectable}from'';
  *?      @Injectable()
 *?      export class PeliculaService{
             holaMundo(){

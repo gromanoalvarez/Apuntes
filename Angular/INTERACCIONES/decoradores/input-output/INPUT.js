@@ -11,6 +11,7 @@
 *?    'slider-small': size == 'small'
 }">
 *! COMP. PADRE slider.component.ts:
+import{Input} from'',
 *?@Input() size:string;
 
 *! COMP. HIJO blog.component.html:

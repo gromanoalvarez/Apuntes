@@ -10,6 +10,7 @@
     ">Seleccionar como Favorita</button>
 
 ** EN EL HIJO pelicula.component.ts:
+import{Output} from'';
 *todo    @Output() MarcarFavorita = new EventEmitter();
 
 *!        seleccionar(event:any, pelicula:any){
