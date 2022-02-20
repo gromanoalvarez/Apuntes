@@ -1,110 +1,111 @@
 <!-- 
-!               DIRECTIVAS
-*                  Son "Atributos de etiquetas" HTML (VISTAS) y que generan una accion
-* Puedo tener mas de una en cada etiqueta
-ej 
-<app-slider    
-    [nombre]="'Blog'"
-    [size]="'small"
-></app-slider> 
-TODO            DIRECTIVAS ESTRUCTURALES
+!                              DIRECTIVAS
+*         Son "Atributos de etiquetas" HTML (para PLANTILLAS o VISTAS) y que generan una acción.
+* Puedo tener más de una en cada etiqueta.
+Ejemplo: 
+?<app-slider    
+?    [nombre]="'Blog'"
+?    [size]="'small"
+?></app-slider> 
 
-a) Si la condicion es verdadera puede mostrar el contenido de la etiqueta html sino lo deja oculto
+
+TODO            DIRECTIVA ESTRUCTURAL *ngIf
+a) Si la condición es verdadera puede mostrar el contenido de la etiqueta html sino lo deja oculto.
 ?    *ngIf="condicionBoolean"
-ej.
-<div class="loading" *ngIf="!articles">
-    Cargando...
-</div>
-<div  *ngIf="articles">
-    <h1>Agrego todo el html que quiera</h1>
-</div>
+Ej.
+?<div class="loading" *ngIf="!articles">
+?    Cargando...
+?</div>
+?<div  *ngIf="articles">
+?    <h1>Agrego todo el html que quiera</h1>
+?</div>
 
 
-b) Ciclo for, RECORRE UN ARRAY por cada vuelta "genera una variable let que se llame pelicula" del array peliculas,
- ?   *ngFor="let pelicula of peliculas; let i = index;"
+TODO            DIRECTIVA ESTRUCTURAL <NG-TEMPLATE #NombreDeLaTemplate> (THEN & "ELSE")
+Para usar como ELSE, es decir, si es true muestra el div sino muestra el template.
+*Opcion 1:
+?    <div *ngIf="nombre; else noHayParametros">
+?       <h2>{{nombre}}</h2>
+?    </div>
+?    <ng-template #noHayParametros">
+?        <h2>No hay nada que mostrar</h2>
+?    </ng-template>
 
-
-TODO            DIRECTIVA <NG-TEMPLATE> (THEN & ELSE)
-(para usar como ELSE, es decir, si es true mostra el div sino mostra el template )
-1ro crear el:
-    ?<div con *ngIf ="nombre; THEN siHayParametros ELSE noHayParametros">VERDADERO</DIV>
-2do 
+*Opcion 2: Evalua el nombre y si es verdadero ejecuta el THEN pero si es falso ejecuta el ELSE.
+    ?<div con *ngIf ="nombre; THEN siHayParametros ELSE noHayParametros"></div>
+    ?<ng-template #siHayParametros>VERDADERO</ng-template>
     ?<ng-template #noHayParametros>FALSO</ng-template>
-    ?<NG-TEMPLATE #siHayParametros>YES</ng-template>
 
 
-TODO        DIRECTIVAS CSS
 
-!    [style.background-propio]="pelicula.year > 2016 ? 'green' : 'red' "
-        o
-!    [ngStyle]="{
-?       'year-green': pelicula.year > 2016",
-?       'year-red': pelicula.year < 2016"
+TODO            DIRECTIVA ESTRUCTURAL *ngfor
+b) Ciclo for, RECORRE UN ARRAY por cada vuelta "genera una variable let que se llame pelicula" del array peliculas.También hago lo mismo con el indice para mostrar la posición de cada película en el <h2> seguido muestra el título de cada variable individual o pelicula individual que se guardo con let. Por último tambien mostramos la imagen que contiene cada variable pelicula de mi array (recordar que el array peliculas debe estar declarado en mi component.ts con sus variables title e image).
+?   <div   *ngFor="let pelicula of peliculas; let i = index;" >
+?       <h2> {{i}} {{pelicula.title}} </h2>
+?       <img src="{{pelicula.image}}" alt="{{pelicula.title}}"/>
+?   </div>
+
+
+TODO        DIRECTIVAS DE ATRIBUTO CSS [style.background] y [ngStyle]
+*opcion 1...  (teniendo el array y la propiedad year declarado en el component.ts)
+!   [style.background] = "CONDICION ?'APLICAR-EN-TRUE' :'APLICAR-EN-FALSE'"
+?   <span class="year" [style.background]=" pelicula.year>2016 ?'green' :'red' " >
+?       {{pelicula.year}}
+?   </span>
+*opcion 2...o es lo mismo que declarar las condiciones en un objeto json (separadas con coma)
+!    [ngStyle]="{ 
+?       'year-green': pelicula.year > 2016,
+?       'year-red': pelicula.year < 2016
 ?     }"
+todo         DIRECTIVAS DE CLASE CSS 
+*opcion 3... declarar las condiciones como atributos (separadas sin coma)
+!   [class.CLASE-CREADA-EN-CSS] = "SE APLICA SOLO SI CONDICION ES TRUE"
+?                   <span class="year" [class.color-green]="pelicula.year > 2016" 
+?                                      [class.color-red]="pelicula.year < 2016"    >
+?                       {{pelicula.year}}
+?                   </span>
+*opcion 4... declarar ngClass como objeto json (separadas con coma)
+?                   <span class="year" [ngClass]="{
+?                                           'color-green': pelicula.year > 2016, 
+?                                           'color-red': pelicula.year < 2016
+?                                                   }"    
+?                   >
+?                       {{pelicula.year}}
+?                   </span>
 
 
-!      [class.background-propio]="pelicula.year > 2016 "
-        o
-!      [ngClass]="{
-?        'year-green': pelicula.year > 2016",
-?        'year-red': pelicula.year < 2016"
-?       }
-* directiva ngClass EN COMPONENTE PADRE  para recibir e identificar que estilo poner al slider de cada componente hijo
-COMP. PADRE slider.component.html:
-<div id="slider" [ngClass]="{
-    'slider-big': !size || size == 'big',
-    'slider-small': size == 'small'
-}">
-COMP. PADRE slider.component.ts:
-@Input() size:string;
+TODO        DIRECTIVAS DE CLASE CSS [ngClass] en COMPONENTE PADRE E HIJO
+* directiva [ngClass] EN COMPONENTE PADRE  para recibir e identificar que estilo poner al slider de cada COMPONENTE HIJO.
+!COMP. PADRE slider.component.html:
+?<div id="slider" [ngClass]="{
+?    'slider-big': !size || size == 'big',
+?    'slider-small': size == 'small'
+?}">
+!COMP. PADRE slider.component.ts:
+?@Input() size:string;
 
-COMP. HIJO blog.component.html:
-<app-slider [size]="'small'"></app-slider>
+!COMP. HIJO blog.component.html:
+?<app-slider [size]="'small'"></app-slider>
 
 
-
-TODO        DIRECTIVA DE VINCULO 
-
-(suplanta el href para que sea un vínculo reactivo)
+TODO        DIRECTIVA DE VÍNCULO [routerLink]
+Suplanta el href para que sea un vínculo reactivo.
 ?    [routerLink]="['/nombreDeLaRuta']"
 ?       [routerLink]="['/blog/crear']"
-Esto cambia el componente y actualiza la URL con la nueva ruta 
-
-TODO            DIRECTIVA ACTIVE
-
-?    [routerLinkActive]="['active']"
-Identifica cuando se usa el componente y aplica la "Clase" CSS .active (en este caso deja subrayado y color fijo)
+Esto cambia el componente y actualiza la URL con la nueva ruta. 
 
 
-todo     TEXTO VARIABLE DESDE CADA COMPONENTE HIJO:
-APP.COMPONENT.HTML ES EL "COMPONENTE PADRE" DE APP.SLIDER
-Con la [directivaNombre] le paso 'un texto' desde cada componente hijo slider. Desde cada pagina o seccion del nav donde me pare el slider sera diferente ya que cada uno recibira un texto diferente (en este caso el titulo).
-ej:
-<app-slider [directivaNombre]="'Bienvenido a mi web SPA con Angular (desde componente)'"></app-slider>
+TODO            DIRECTIVA ACTIVE [routerLinkActive]
+?    [routerLinkActive]="['NombreDeClaseQueDeseoAplicar']"
+Identifica cuando se usa el componente y aplica la "Clase deseada" (Ej. en el nav deja subrayado y color fijo).
 
 
+todo     DIRECTIVA DE TEXTO VARIABLE DESDE CADA COMPONENTE HIJO [directivaNombre]
+ Puedo copiar esta etiqueta en cada componente hijo y adaptar el String a cada componente.
+Ej:
+? <app-slider [directivaNombre]="'Bienvenido'"></app-slider>
 
-todo                 DIRECTIVAS DE ATRIBUTO
-opcion 1...  [style.background]  ? si se cumple : si no se cumple   
-            <span class="year" [style.background]="peli.year > 2016 ? 'green' : 'red' " >
-                {{peli.year}}
-            </span>
-opcion 2... 
-                   <span class="year" [ngStyle]="{
-                                        'year-green': peli.year > 2016,
-                                        'year-red' : peli.year < 2016
-                                        }" >
-                    {{peli.year}}
-                </span>
-opcion 3... 
-                   <span class="year" [class.CLASE CREADA EN CSS]="CONDICION" >
-                    {{peli.year}}
-                </span>
-                            <span class="year" [class.year-green]="peli.year > 2016" 
-                    [class.year-red]="peli.year < 2016">
-                    {{peli.year}}
-                </span>
-opcion 4... 
+
  -->
 
  
