@@ -1,0 +1,69 @@
+
+
+/* !                      Angular (de Google)
+                          -------------------
+
+
+ TODO      OBTIMIZADO para hacer APLICACIONES WEB SPA (single page applications),  a través del  <router-outlet> en la vista del componente principal va reconociendo la url y la ruta en la que estamos (y queremos mostrar) y a la que queremos ir. Generando una interfaz DINÁMICA y reactiva, es decir, LA PANTALLA NO RECARGA sino que la interacción con el Backend va por AJAX (peticiones http asincronas).
+
+
+TODO       COMPONENTE - CONTROLADOR de un trozo de pantalla, controla y gestiona lo que se ve. mediador entre la "vista" a través de la "plantilla" y la lógica SIEMPRE TERMINA EN .TS
+Intercambia información con otros componentes a través:
+?    @Input (de PADRE a hijo)
+ ?   @Output ( de hijo a PADRE)
+
+
+TODO          VISTA o PLANTILLA  (ficheros HTML)
+ La visual de los componentes con sintaxis especial de ETIQUETAS, trabajan con DATA-BLINDING y las DIRECTIVAS.
+
+TODO         LA VISTA o PLANTILLA Puede utilizar una propiedad del .ts a través del
+! BINDING por INTERPOLACIÓN 
+?{{ propiedad del .ts}}
+ ?           ejemplo -> <h2> {{ titulo }} </h2>
+
+
+
+TODO        SERVICIOS O PROVIDERS: Son CLASES con MÉTODOS para COMPONENTES. Principalmente lo utilizamos para hacer metodos que hagan peticiones Ajax al servidor.
+
+
+
+TODO        DECORADORES (de typeScript): Patrón de diseño, configura los METADATOS/atributos de las clases y componentes. 
+ej:
+
+Ej DECORADOR (características del componente)
+    _||_
+    \  /
+     \/
+@Component({
+    selector:'mi-componente',
+    template:  `<h1>Hola Mundo</h1> `
+});
+
+@Component({
+  selector: 'app-article-edit', <------ nombre o Etiqueta para la vista
+  templateUrl: '../article-new/article-new.component.html', /VISTA DEL COMPONENTE
+  styleUrls: ['./article-edit.component.css'], /ESTILO DEL COMPONENTE
+  providers: [ArticleService], <------------------[PROVIDERS]: DATOS, METODOS.
+});
+
+
+
+TODO        LAS DIRECTIVAS: ( "ATRIBUTOS" QUE SE USAN EN LA VISTA-PLANTILLA .HTML) Son FUNCIONALIDADES al DOM y a los ELEMENTOS HTML. Puede generar que un div se muestre o no, o puede dar estilos a elementos entre otros, ETC. "Son nuevos ATRIBUTOS para aplicar a las ETIQUETAS de la plantilla".
+
+    EJEMPLO
+    DIRECTIVA> [routerLink]="['/blog/crear']"
+        (es como el href, es decir, nos hace un VINCULO un LINK)
+
+
+
+TODO         MÓDULOS: puedo tener módulos para la aplicacion principal y dentro tener otros para hacer diferentes funcionalidades y reutilizar en otros proyectos. Para mejorar la arquitectura
+    |
+    --->APP.MODULE.TS para que anden las rutas,navegar por urls con angular. Permite cargar configuraciones para el MÓdulo. IMPORTA EL COMPONENTE A CUALQUIER PARTE DE MI APLICACIóN 
+                    ... es una BUENA PRACTICA usar sufijos "component" EJ AppComponent, FooterComponent, ArticleEditComponent
+
+
+
+TODO        ROUTING: Es decir, como crear RUTAS, permite recoger parametros de la URL.
+
+
+*/

@@ -64,7 +64,7 @@
 //? <app-footer></app-footer>
 // Esto evitará que sea estático, ya que detecta sobre ruta estoy o deseo y llama a su componente.
 
-//! 9) Todas las páginas tienen que comenzar en su VISTA.html
+//! 9) Todas las páginas tienen que comenzar en su PLANTILLAoVISTA.html
 //! con las etiquetas de que tienen en común, por ejemplo 
 //! un "slider" o un "sidebar"
 

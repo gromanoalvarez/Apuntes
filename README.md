@@ -1,5 +1,5 @@
  Notas y apuntes sobre los  diferentes lenguajes y tecnologías
- Todos los ejemplos pertenecen al proyecto de Angular:
+ Todos los ejemplos de las carpetas Angular, Nodejs y MongoDB pertenecen al proyecto de Angular:
 # link 
 `https://github.com/gromanoalvarez/Frameworks`
 

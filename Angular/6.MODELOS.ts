@@ -2,7 +2,7 @@
  * ! MODELOS =  CLASE!!! MOLDE de Objetos
 
  * Ej SIRVE PARA OPTIMIZAR LO SIGUIENTE...
- * !en PELICULAS.COMPONENT.TS
+ * ! INICIALMENTE: En PELICULAS.COMPONENT.TS
        export class PeliculasComponent implements OnInit, DoCheck, OnDestroy {
 
         public titulo: string;
@@ -13,27 +13,22 @@
         constructor( private _peliculaService: PeliculaService) {
             this.titulo = "Inicio el valor en mi constructor";
             this.peliculas =  
-    *!   Esta  PRIMER OPCION
-    *!             NO SIRVE
-    *TODO          declarando [array de objetos literales en formato json]
+    *!   Esta  PRIMER OPCION  declarando [array de objetos literales en formato json] en el constructor NO SIRVE:
                         [
                             {year: 2019, title:"Spiderman", image: "URL"},
                             {year: 2014, title:"Que paso ayer", image: "URL"},
                             {year: 2017, title:"Advenger", image: "URL"}
                         ]
 
+                        
 *! SEGUNDA OPCION.  MAS OPTIMA!!!!
-*TODO        CREANDO un MODELO = Molde para CREAR Objetos
+*TODO        CREAR un MODELO = Molde para CREAR Objetos
 *!             (CREAR  MODELS/PELICULA.TS) 
-*? en pelicula.ts ya uso TYPESCRIP
-*? defino la class Pelicula{
-*    propiedades..
-*    (declaracion de variables)
+*?  class Pelicula{
 **      public title: string;
 **      public year: number;
 **      public image: string;
 
-*    constructor...**    (asigno valores a mis propiedades declaradas)
 **        constructor( title, year, image){
 **           this.title=title;
 **           this.year= year;
@@ -53,7 +48,9 @@
 **                                  new Pelicula("Advenger", 2017, "URL")
 **                              ];
 
-*!             (en  MODELS/PELICULA.TS) puedo optimizar mas aun el código
+
+
+*!  OPCIONAL puedo optimizar más aún el código  (en  MODELS/PELICULA.TS)
 *? en pelicula.ts ya uso TYPESCRIP
 *? defino la class Pelicula{
 ////    (declaracion de variables)
@@ -72,6 +69,6 @@
 **           public year: number,
 **           public  URL: string
 **        ){} 
- *! MAGICO! TYPESCRIPT NOS PERMITE
- *! HACER TODO RESUMIDO EN UNAS POCAS LINEAS (DECLARO Y ASIGNO AL MISMO TIEMPO)
+ *! MAGICO! TYPESCRIPT NOS PERMITE HACER TODO RESUMIDO EN UNAS POCAS LINEAS (DECLARO Y ASIGNO AL MISMO TIEMPO).
+
  */
