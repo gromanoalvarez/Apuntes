@@ -17,6 +17,12 @@
 //*     tipoDeAcceso nombre: tipoDeDato;
 //?    public titulo: string;
 
+/**
+ *!   PUBLIC: Se puede utilizar dentro o fuera de la clase.
+ *!   PROTECTED: Se puede utilizar dentro de la clase y dentro de las que lo hereden.
+ *!   PRIVATED: Solo se puede utilizar en la clase donde esta definida.
+ */
+
      //constructor
 // ?    constructor( private _servicio : provider){
 // ?        this.titulo = "Hola Mundo";

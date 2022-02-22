@@ -24,41 +24,37 @@
 *! SEGUNDA OPCION.  MAS OPTIMA!!!!
 *TODO        CREAR un MODELO = Molde para CREAR Objetos
 *!             (CREAR  MODELS/PELICULA.TS) 
-*?  class Pelicula{
+*? export class Pelicula{ ////para poder utilizarlo fuera utilizo EXPORT
 **      public title: string;
 **      public year: number;
 **      public image: string;
 
-**        constructor( title, year, image){
-**           this.title=title;
-**           this.year= year;
-**           this.image= image;
+**        constructor(title, year, image){
+**           this.title = title;
+**           this.year = year;
+**           this.image = image;
 **        }
-*? para poder utilizarlo fuera utilizo EXPORT
 *! AHORA PUEDO IMPORTARLO EN 
 *!          PELICULAS.COMPONENT.TS (EL EJEMPLO INICIAL)
+*? import {Pelicula} from '../../models/pelicula';
 **        constructor( private _peliculaService: PeliculaService) {
 **            this.titulo = "Inicio el valor en mi constructor";
-**            this.peliculas =  
-*TODO    UTILIZO la Clase-MOLDE CREANDO = "INSTANCIANDO" "new" Objetos y le paso los mismos atributos
-*TODO    que requiere el constructor declarado en MODELS/pelicula.ts
-**                              [
-**                                  new Pelicula("Spiderman", 2019,  "URL"),
-**                                  new Pelicula("Que paso ayer", 2014, "URL"),
-**                                  new Pelicula("Advenger", 2017, "URL")
+*TODO    UTILIZO la Clase-MOLDE, creando o mejor dicho "INSTANCIANDO" "new" Objetos y le paso los mismos atributos  que requiere el constructor declarado en MODELS/pelicula.ts
+**            this.peliculas =  [
+*?                                  new Pelicula("Spiderman", 2019,  "URL"),
+*?                                  new Pelicula("Que paso ayer", 2014, "URL"),
+*?                                  new Pelicula("Advenger", 2017, "URL")
 **                              ];
+**          }
 
 
 
 *!  OPCIONAL puedo optimizar más aún el código  (en  MODELS/PELICULA.TS)
-*? en pelicula.ts ya uso TYPESCRIP
-*? defino la class Pelicula{
-////    (declaracion de variables)
+* export class Pelicula{
 ////     public title: string;
-////      public year: number;
-////    public image: string;
+////     public year: number;
+////     public image: string;
 
-////    constructor...**    (asigno valores a mis propiedades declaradas)
 ////        constructor( title, year, image){
 ////           this.title=title;
 ////           this.year= year;
@@ -69,6 +65,6 @@
 **           public year: number,
 **           public  URL: string
 **        ){} 
- *! MAGICO! TYPESCRIPT NOS PERMITE HACER TODO RESUMIDO EN UNAS POCAS LINEAS (DECLARO Y ASIGNO AL MISMO TIEMPO).
+ *! MAGICO! TYPESCRIPT NOS PERMITE HACER TODO RESUMIDO EN UNAS POCAS LINEAS (DECLARO, RECIBO EL DATO Y ASIGNO AL MISMO TIEMPO).
 
  */
