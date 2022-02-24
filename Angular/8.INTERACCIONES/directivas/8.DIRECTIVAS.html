@@ -32,7 +32,7 @@ Para usar como ELSE, es decir, si es true muestra el div sino muestra el templat
 ?    </ng-template>
 
 *Opcion 2: Evalua el nombre y si es verdadero ejecuta el THEN pero si es falso ejecuta el ELSE.
-    ?<div con *ngIf ="nombre; THEN siHayParametros ELSE noHayParametros"></div>
+    ?<div con *ngIf ="nombre; then siHayParametros else noHayParametros"></div>
     ?<ng-template #siHayParametros>VERDADERO</ng-template>
     ?<ng-template #noHayParametros>FALSO</ng-template>
 
