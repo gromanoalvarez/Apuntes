@@ -1,22 +1,28 @@
 /* 
     
-!   MongoDB es No SQL
--No relacional (no necesita relaciones entre datos por claves)
--Utiliza JavaScript 
--Orientada a "COLLECTIONS" de "CAMPOS" y "DOCUMENTOS" (usa json pero aca se transforman en bson: binario)
+!           MongoDB es No SQL
+
+-No relacional (no necesita relaciones entre datos por claves) Una collection puede tener diferentes datos a la otra sin relacion alguna
 -Sencilla (no hace falta hacer relaciones)
 -Veloz (por ser json de tipo binario, veloz en tiempo de consultas)
+-Utiliza JavaScript 
+-Orientada a "COLLECTIONS" de "CAMPOS" y "DOCUMENTOS" (usa json pero aca se transforman en bson: binario)
 -Esquema libre (en cada documento no hay porque tener misma cantidad de "campos" o "documentos")
     Por ejemplo:
 > db.products.find()
 { "_id" : ObjectId("61bd223ce972678be6a07084"), "name" : "keyboard" }  
 { "_id" : ObjectId("61bd2286e972678be6a07085"), "name" : "laptop", "price" : 999.99 }
 
-COLLECTIONS:
-              CAMPO-NOMBRE  CAMPO-APELLIDO  CAMPO-EMAIL
-{DOCUMENTO1}  German           Romano       gromanoalvarez@alumno.unlam.edu.ar
-{DOCUMENTO2}  datos             datos       datos
+======================================================
+!           COMPARATIVA CON SQL
 
+TODO    MIENTRAS QUE EN SQL SE HARIA ASÍ
+ESQUEMA:
+        COLUMNA         COLUMNA
+FILA    registro        registro
+FILA    registro        registro
+
+TODO     EN MONGODB LA SINTAXIS ES LA SIGUIENTE:
 usuarios:
 {
     nombre:"German",
@@ -29,23 +35,68 @@ usuarios:
     email: "datos"
 }
 
-!                      Ejecutar MONGODB:
+TODO    EN COMPARATIVA :
+El ESQUEMA pasa a ser COLLECTIONS (usuarios),
+Las FILAS pasan a ser  DOCUMENTOS (todo lo que esta entre {}),
+Las COLUMNAS pasan a ser CAMPOS:,
+Los REGISTROS ahora son "DATOS".
+
+COLLECTION-usuarios:
+              CAMPO-NOMBRE  CAMPO-APELLIDO  CAMPO-EMAIL
+{DOCUMENTO1  German           Romano       gromanoalvarez@alumno.unlam.edu.ar },
+{DOCUMENTO2  datos             datos       datos }
+
+
+======================================================
+
+!                      Instalación:
+? https://www.mongodb.com/download-center/community  
+version: current
+package: MSI
+OS: windows 64bit 
+
+(En Service Configuration se puede configurar como "servicio" para no tener que correr manualmente el mongod, lo que es recomendable si lo usas a diario)
+
+todo        Una vez instalado necesito crear la carpeta "db" dentro de la carpeta "data":
+Equipo/disco (C:) crear la carpeta data/db
+*Aqui se guardan las configuraciones de mongodb para windows
+
+
+======================================================
+
+!                      Ejecutar MongoDB:
+
 ? C:\Program Files\MongoDB\Server\5.0\bin
-todo        ABRIR Y DEJAR CORRIENDO  "mongod"
-todo        ABRIR "mongo" (poner help si quiero ver los comandos)
+todo        ABRIR Y DEJAR CORRIENDO  "mongod" (servicio activo)
+todo        ABRIR "mongo" , se abrira en CMD (poner help si quiero ver los comandos)
+* Ejemplo:
+Si ingreso el comando: show dbs; mostrará todas las bases de datos creadas
+(admin, config y local vienen por defecto). 
+Luego puedo abrir una base de datos con el comando: use seguido del nombre de la base de datos que quiero usar.
+Luego puedo ver las collections dentro de esa base de datos con el comando: show collections
 
-* 1.Crear una base de datos:
-    use "nombre de la nueva base de datos (en este caso pruebas1)"
+! IMPORTANTE: TENER CORRIENDO "mongod".  
+! IMPORTANTE: TENER CORRIENDO "mongod".  
+! IMPORTANTE: TENER CORRIENDO "mongod".  
 
-* 2. Agregar datos:
-    db.collection.metodo({bson});
-    db.NombreCollection.save({"nombre": "German", "apellido":"Romano", "email": "gromanoalvarez@alumno.unlam.edu.ar"});
-o sino tambien el otro metodo:
-    db.NombreCollection.insert({"nombre": "German", "apellido":"Romano", "email": "gromanoalvarez@alumno.unlam.edu.ar"});
-o sino db.createCollection("nombreDeCollection")
+* 1. Crear una base de datos:
+No existe un comando especifico para crear la base de dato, simplemente cuando pongo "use" y el nombre  detecta si existe o no, y si no existe la crea, pero luego estoy obligado a insertarle una collection y un dato, sino si la dejo vacia la eliminará.
+    use nombreNuevaDB (en este caso pruebas1)
+?    use pruebas1
+*<Recordar que si ahora pongo el comando show dbs no la muestra porque no tiene contenido>
 
-O se pueden agregar multiples datos en un solo paso:
-db.products.insert([
+* 2. Agregar una collection con datos:
+    db.collection.metodo({Bson});
+    db.nombreCollectionDeseada.save({nombre: "German", apellido:"Romano", email: "gromanoalvarez@alumno.unlam.edu.ar"});
+?    db.usuarios.save({nombre: "German", apellido:"Romano", email: "gromanoalvarez@alumno.unlam.edu.ar"});
+
+  todo   Como respuesta podremos ver: WriteResult({"nInserted":1}) ..... SIGNIFICA INSERCIÓN DE 1 COLLECTION EXITOSA
+*<Ahora ya al tener una collection se creo definitivamente la db, si ingreso el comando show dbs ahora si nos la muestra>
+
+o sino también puedo usar el otro método:
+?    db.nombreCollection.insert({nombre: "German", apellido:"Romano", email: "gromanoalvarez@alumno.unlam.edu.ar"});
+O se pueden agregar múltiples datos en un solo paso:
+? db.products.insert([
     {
         "name": "mouse",
         "description": "razer mouse",
@@ -61,85 +112,87 @@ db.products.insert([
         "created_at": new Date() 
     }
 ])
-    
 
-
-  todo                  WriteResult({"nInserted":1}) ..... SIGNIFICA INSERCION EXITOSA
-
-
+o sino simplemente crear una collection sin datos:
+? db.createCollection("nombreDeCollection")
 
 *3. Puedo VER la base de datos:
-    show dbs
+?    show dbs
 
 *4. Puedo VER las collecciones dentro de la db:
-    show collections
-
-
+?    show collections
 
 *5. Puedo BUSCAR TODOS LOS DOCUMENTOS hay dentro de un collections
-    db.usuarios.find() 
     baseDeDato.Collections.MetodoBuscar();
+?    db.usuarios.find() 
 Sino tambien
-    db.usuarios.find().pretty() (lo detalla con enters en FORMATO JSON de js)
-Sino tambien BUSCAR TODOS LOS DOCUMENTOS con un Campo y Dato especifico  
-        db.usuarios.find({"campo": "dato"}).pretty()
+?    db.usuarios.find().pretty()
+ (pretty es lo detalla de forma bonita con enters en FORMATO JSON de js)
 
-Sino tambien BUSCAR UN LIMITE DE DOCUMENTOS (ej 3)
-        db.usuarios.find().limit(3)
+*BUSCAR TODOS LOS DOCUMENTOS con un Campo y Dato especifico  
+?        db.usuarios.find({"campo": "dato"}).pretty()
 
-Sino tambien BUSCAR SOLO 1 DOCUMENTO DONDE SE ENCUENTRA UN CAMPO con un dato especifico
-        db.usuarios.findOne({"campo": "dato"})  - devuelve solo el primer documento
-Sino tambien BUSCAR SOLO 1 DOCUMENTO DONDE SE ENCUENTRA VARIOS CAMPOS con varios datos especificos
-        db.usuarios.findOne({"campo": "dato", "campo2": "dato2"})  
+*BUSCAR UN LIMITE DE DOCUMENTOS (ej 3)
+?        db.usuarios.find().limit(3)
 
-Sino tambien BUSCAR SOLO 1 DOCUMENTO DONDE SE ENCUENTRA VARIOS CAMPOS con varios datos especificos, PERO DENTRO DEL DOCUMENTO MOSTRAME SOLO 1 DATO DEL CAMPO NAME Y EL CAMPO DESCRIPTION  
-        db.usuarios.findOne({"campo": "dato", "campo2": "dato2"}, {"name":1, "description":1})  
+* BUSCAR SOLO 1 DOCUMENTO DONDE SE ENCUENTRA UN CAMPO con un dato especifico
+?        db.usuarios.findOne({"campo": "dato"})  - devuelve solo el primer documento
+
+* BUSCAR SOLO 1 DOCUMENTO DONDE SE ENCUENTRA VARIOS CAMPOS con varios datos especificos
+?        db.usuarios.findOne({"campo": "dato", "campo2": "dato2"})  
+
+* BUSCAR SOLO 1 DOCUMENTO DONDE SE ENCUENTRA VARIOS CAMPOS con varios datos especificos, PERO DENTRO DEL DOCUMENTO MOSTRAME SOLO 1 DATO DEL CAMPO NAME Y EL CAMPO DESCRIPTION  
+?        db.usuarios.findOne({"campo": "dato", "campo2": "dato2"}, {"name":1, "description":1})  
 
 *5.B. TRAER INFO Y ORDENAR por nombre
-        db.usuarios.find({"campo": "dato"}).sort({name: 1})
+?        db.usuarios.find({"campo": "dato"}).sort({name: 1})
 
 *5.C  TRAER INFO Y HACER METODOS
-    db.products.find().forEach(product => print("Product Name: " + product.name))
+?    db.products.find().forEach(product => print("Product Name: " + product.name))
 
 *5.D TRAER UN PRODUCTO Y "REEMPLAZAR" TODO POR SOLO UN NUEVO DATO 
-    db.products.update({"name": "keyboard"}, {"price": 99.99})
+?    db.products.update({"name": "keyboard"}, {"price": 99.99})
 
 *5.E TRAER UN PRODUCTO Y "AGREGAR" UN NUEVO DATO
-    db.products.uddate({"name": "laptop"}, {$set: {"description": "lg gram laptop"} })
+?    db.products.uddate({"name": "laptop"}, {$set: {"description": "lg gram laptop"} })
 
 *5.F TRAER UN PRODUCTO y si no existe no importa "AGREGAR" UN NUEVO DATO
-    db.products.uddate({"name": "laptop"}, {$set: {"description": "lg gram laptop"}}, {upsert: true} )
+ ?   db.products.uddate({"name": "laptop"}, {$set: {"description": "lg gram laptop"}}, {upsert: true} )
 
 *5.G Buscar documento e INCREMENTAR valor numerico
-    db.products.update({"name": "keyboard"}, {$inc: {"price": 0.01}})
+?    db.products.update({"name": "keyboard"}, {$inc: {"price": 0.01}})
 
 *5.H Buscar documento y RENOMBRAR de price a precio
-    db.products.update({"name": "keyboard"}, {$rename: {"price": "precio"}})
-
-
+?    db.products.update({"name": "keyboard"}, {$rename: {"price": "precio"}})
 
 *6. Para ELIMINAR la base de datos:
 Primero posicionarme en la base de datos que quiero borrar e ingresar el comando:
-    db.dropDatabase()
+?    db.dropDatabase()
 
 *7. Para ELIMINAR una collections:
-    db.NombreCollection.drop()          
+?    db.NombreCollection.drop()          
 
 *8 .Buscar y REMOVER 1 SOLO DOCUMENTO SEGÚN UN CAMPO
-    db.products.remove({"name": "keyboard"})
+?    db.products.remove({"name": "keyboard"})
+
 *9. BUSCAR Y REMOVER TODOS LOS DOCUMENTOS
-    db.products.remove({})
+?    db.products.remove({})
+
+! IMPORTANTE: TENER CORRIENDO "mongod".  
+! IMPORTANTE: TENER CORRIENDO "mongod".  
+! IMPORTANTE: TENER CORRIENDO "mongod".  
 
 
+============================================================================
 
- todo   GUI: ADMINISTRADOR VISUAL para mongoDB
+!               "Robo 3T" is the MongoDB GUI for hobbyists.
+
+ todo       Robo3t VISUALIZA LAS COLLECTIONS QUE TENGO EN MONGODB EN UNA INTERFAZ MAS BONITA. Es un GUI: ADMINISTRADOR VISUAL para mongoDB (EVITA trabajar con LOS COMANDOS)
+    Instalar en:
 ?        https://robomongo.org/
-"Robo 3T" is the MongoDB GUI for hobbyists.
-MongoDB GUI with embedded shell
-Support for MongoDB 4.2
 
-! IMPORTANTE: TENER CORRIENDO mongod y mongo para crear Robo3t
-   luego Conectar
-
+! IMPORTANTE: TENER CORRIENDO "mongod".  
+! IMPORTANTE: TENER CORRIENDO "mongod".  
+! IMPORTANTE: TENER CORRIENDO "mongod".  
 
 */
