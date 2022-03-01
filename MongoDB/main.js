@@ -85,7 +85,7 @@ No existe un comando especifico para crear la base de dato, simplemente cuando p
 ?    use pruebas1
 *<Recordar que si ahora pongo el comando show dbs no la muestra porque no tiene contenido>
 
-* 2. Agregar una collection con datos:
+* 2. Agregar una collection con  "un solo documento":
     db.collection.metodo({Bson});
     db.nombreCollectionDeseada.save({nombre: "German", apellido:"Romano", email: "gromanoalvarez@alumno.unlam.edu.ar"});
 ?    db.usuarios.save({nombre: "German", apellido:"Romano", email: "gromanoalvarez@alumno.unlam.edu.ar"});
@@ -95,7 +95,8 @@ No existe un comando especifico para crear la base de dato, simplemente cuando p
 
 o sino también puedo usar el otro método:
 ?    db.nombreCollection.insert({nombre: "German", apellido:"Romano", email: "gromanoalvarez@alumno.unlam.edu.ar"});
-O se pueden agregar múltiples datos en un solo paso:
+
+*O se pueden agregar "múltiples documentos" en un solo paso:
 ? db.products.insert([
     {
         "name": "mouse",
@@ -113,7 +114,7 @@ O se pueden agregar múltiples datos en un solo paso:
     }
 ])
 
-o sino simplemente crear una collection sin datos:
+*O sino simplemente crear una collection "sin documentos":
 ? db.createCollection("nombreDeCollection")
 
 *3. Puedo VER la base de datos:
@@ -194,5 +195,23 @@ Primero posicionarme en la base de datos que quiero borrar e ingresar el comando
 ! IMPORTANTE: TENER CORRIENDO "mongod".  
 ! IMPORTANTE: TENER CORRIENDO "mongod".  
 ! IMPORTANTE: TENER CORRIENDO "mongod".  
+
+============================================================================
+
+!       MongoDB en NodeJS
+
+1. Con NodeJS debo usar la dependencia mongoose para "vincular el servidor con la base de datos":
+?   Backend/main.js
+2. También debo crear el modelo para que cada artículo del blog se guarde en el backend con las mismas propiedades (campos):
+?   Backend/models/article.js  
+3. Dentro declarar el Schema que seguirán todas las collections  declarando el tipo de dato que usará cada campo: 
+?var ArticleSchema = Schema( 
+?    {
+?        title: String, 
+?        content: String, 
+?        date: {type: Date, default: Date.now}, 
+?        image: String 
+?    }
+?)
 
 */
