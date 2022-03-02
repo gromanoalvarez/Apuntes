@@ -5,7 +5,7 @@
  ** Hace que tu aplicación pueda integrarse a otros proyectos y otras aplicaciones. Por eso es indispensable que tengan una Documentación a modo de guía para implementar su uso.
   
  ** API:
-  INTERFAZ (Capa de "abstracción" para que dos entidades se comuniquen y sin necesidad de saber la mecánica que corre por detrás) que permite la comunicación entre APLICACIONES.
+  INTERFAZ (Capa de "abstracción" para que dos entidades se comuniquen sin necesidad de saber la mecánica que corre por detrás) que permite la comunicación entre APLICACIONES.
   Ejemplos: API DOM (manipula documentos), Fetch API (obtiene datos del servidor), Canvas (para dibujar y manipular gráficos). Los lenguajes de programación tienen su API con "métodos".
  
  * Las APIs puede ser:
@@ -15,27 +15,27 @@
  ** D) Remotas: Te comunicas con una app que esta en otro punto del mundo. Pueden utilizar Servicios Web (eligiendo entre "protocolo SOAP" o "arquitectura REST").
 
  ** SERVICIO WEB:
-  Permite la comunicación en una red y utiliza el "PROTOCOLO HTTP" que permite manejar información a través de internet mediante PETICIONES (req) y RESPUESTAS (res).
+  Permite la comunicación en una red utilizando el "PROTOCOLO HTTP", mediante PETICIONES (req) y RESPUESTAS (res).
 
  ==============================================================================
   
- *!              Protocolo SOAT (Simple Object Access Protocol)
+ *!              Protocolo SOAP (Simple Object Access Protocol)
 
- Protocolo para el diseño y construcción de Servicios Web "solamente por medio de XML", lo que le permite ser independiente del lenguaje y la plataforma.
+ Protocolo para el diseño y construcción de Servicios Web "solamente por medio de formato XML", lo que le permite ser independiente del lenguaje y la plataforma.
 
   ==============================================================================
   
  *!              REST (REpresentational State Transfer)
 
-  Es una ARQUITECTURA DE SOFTWARE (forma en que esta diseñado un sistema, como estan organizados los componentes, como se comunican entre sí y que funciones cumplen) Estandart de restricciones y recomendaciones que utiliza el "protocolo HTTP" para intercambio de datos. 
+  Es una ARQUITECTURA DE SOFTWARE (forma en que esta diseñado un sistema, como estan organizados los componentes, como se comunican entre sí y que funciones cumplen) Estandart de restricciones y recomendaciones que utiliza el "protocolo HTTP" para intercambio de datos.  Mayormente se utiliza formato JSON.
 
   ** Seis Principios de RESTRICCIONES ARQUITECTÓNICAS
-1- Uso de una Interfaz Uniforme: Estandart de recursos identificables y accesibles de forma "únicas" mediante la URL y con protocolo http (get, post, put, delete).
-2- Modelo Cliente (preocuparse por la interfaz y recopilacion de solicitudes) Servidor (debe preocuparse por el acceso a los datos y la seguridad o tokens). 
+1- Uso de una Interfaz Uniforme: Estandart de "recursos" identificables y accesibles de forma "únicas" mediante la URL y con "protocolo http" (con verbos get, post, put, delete).
+2- Modelo Cliente (que solo debe preocuparse por la interfaz y recopilación de solicitudes) Servidor (solo debe preocuparse por el acceso a los datos y la seguridad o tokens). 
 3- Operaciones sin estado (stateless): cada petición debe ser independiente y no dependerá de peticiones anteriores.
 4- Almacenamiento en Caché (cacheability): Algunas respuestas pueden ser almacenadas en cache, puede reducir las cargas del servidor cuando las respuestas no llegan.
 5- Sistema de Capas: Múltiples capas de servidores cada una con una tarea específica para permitir escalabilidad. Cada capa debe comunicarse con la capa adyacente.
-6- Código bajo demanda: un servidor devolverá representaciones estáticas de recursos en formato XML o Json que es el mas utilizado.
+6- Código bajo demanda: un servidor devolverá representaciones estáticas de recursos en formato XML o Json, que es el más utilizado.
 
  ==============================================================================
 
