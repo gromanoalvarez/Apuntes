@@ -6,7 +6,7 @@
 //EN EL .HTML VISTA USO:
 // *          <input type="text" [(ngModel)]="campo" />
 
-// *     para mostrar lo que estoy modificando en la vista: 
+// *     para mostrar lo que estoy modificando en la vista utilizo "two-way binding" (es decir las doble llave): 
 //          {{campo}}
 
 // *todo        <img sro="{{url + 'get.image/' + article.image}}"

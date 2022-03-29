@@ -2,7 +2,7 @@
  * 
 
 *todo       _Servicio: 
-**          es una Clase con METODOS, LOGICA y FUNCIONALIDADES.
+**          es una Clase con METODOS, LOGICA y FUNCIONALIDADES.En este proyecto estan vinculadas a las peticiones http que hacemos al api restful.
 
 
 *TODO       PRIMER EJEMPLO
